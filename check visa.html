@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Check Visa</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#efefef;
+}
+
+/* HEADER */
+
+.header{
+background:#2f65a7;
+padding:20px;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.header img{
+height:60px;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:#2c5fa3;
+display:flex;
+justify-content:center;
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+padding:14px 20px;
+font-size:14px;
+}
+
+.navbar a:hover{
+background:#1f4a82;
+}
+
+/* MAIN */
+
+.main{
+width:1000px;
+margin:30px auto;
+display:flex;
+}
+
+/* LEFT BOX */
+
+.leftbox{
+width:220px;
+margin-right:30px;
+}
+
+.leftbox .card{
+background:white;
+border:1px solid #ccc;
+padding:15px;
+}
+
+.leftbox button{
+width:100%;
+padding:10px;
+background:#4d87c7;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+/* FORM AREA */
+
+.formbox{
+flex:1;
+background:#c8dcdc;
+padding:20px;
+border:1px solid #9fbcbc;
+}
+
+.formbox h3{
+margin-top:0;
+}
+
+input{
+width:300px;
+padding:6px;
+margin-top:5px;
+}
+
+.captcha{
+margin:10px 0;
+}
+
+.checkbtn{
+background:#3b6ea5;
+color:white;
+border:none;
+padding:8px 20px;
+cursor:pointer;
+border-radius:3px;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:40px;
+border-top:1px solid #bbb;
+padding:10px 40px;
+display:flex;
+justify-content:space-between;
+font-size:13px;
+color:#777;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<div style="display:flex;align-items:center;gap:10px;">
+
+<img src="coat.png">
+
+<div>
+MINISTRY OF FOREIGN AFFAIRS AND EUROPEAN INTEGRATION<br>
+OF THE REPUBLIC OF MOLDOVA
+</div>
+
+</div>
+
+<img src="visa-logo.png">
+
+</div>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<a href="index.html">START</a>
+<a href="#">DO I NEED A VISA?</a>
+<a href="#">APPLY NOW</a>
+<a href="#">CONTINUE APPLICATION</a>
+<a href="#">CHECK YOUR APPLICATION STATUS</a>
+<a href="check-my-visa.html">CHECK VISA</a>
+
+</div>
+
+<!-- MAIN SECTION -->
+
+<div class="main">
+
+<div class="leftbox">
+
+<div class="card">
+
+<p><b>Things you should know</b></p>
+
+<button>10 things you should know about the eVisa</button>
+
+</div>
+
+</div>
+
+
+<div class="formbox">
+
+<h3>Seeking visa</h3>
+
+<label>Visa number</label><br>
+<input type="text"><br><br>
+
+<img src="captcha.png" class="captcha"><br>
+
+<a href="#">Refresh</a><br><br>
+
+<label>Verification code</label><br>
+<input type="text"><br><br>
+
+<button class="checkbtn">Check</button>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<div>Version: 1.6.1.0</div>
+
+<div>
+E-mail:
+<a href="#">evisa@mfa.gov.md</a>
+</div>
+
+</div>
+
+</body>
+</html>
