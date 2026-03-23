@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <title>Check Visa</title>
@@ -9,30 +10,40 @@
 <style>
 
 body{
-font-family:Arial;
 margin:0;
+font-family:Arial, Helvetica, sans-serif;
 background:#efefef;
 }
 
-/* HEADER */
-
-.header{
-background:#2f65a7;
-padding:20px;
-color:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+/* HEADER IMAGE */
 
 .header img{
-height:60px;
+width:60%;
+display:block;
 }
+
+/* COLOR STRIP */
+
+.colorbar{
+height:6px;
+display:flex;
+}
+
+.colorbar div{
+flex:1;
+}
+
+.c1{background:#f6a623;}
+.c2{background:#a142f4;}
+.c3{background:#34a853;}
+.c4{background:#4285f4;}
+.c5{background:#ea4335;}
+.c6{background:#fbbc05;}
 
 /* NAVBAR */
 
 .navbar{
-background:#2c5fa3;
+background:#2f65a7;
 display:flex;
 justify-content:center;
 }
@@ -45,21 +56,21 @@ font-size:14px;
 }
 
 .navbar a:hover{
-background:#1f4a82;
+background:#1e4c86;
 }
 
-/* MAIN */
+/* MAIN LAYOUT */
 
 .main{
 width:1000px;
-margin:30px auto;
+margin:40px auto;
 display:flex;
 }
 
-/* LEFT BOX */
+/* LEFT INFO BOX */
 
 .leftbox{
-width:220px;
+width:230px;
 margin-right:30px;
 }
 
@@ -78,20 +89,21 @@ color:white;
 cursor:pointer;
 }
 
-/* FORM AREA */
+/* VISA FORM AREA */
 
-.formbox{
+.visabox{
 flex:1;
-background:#c8dcdc;
-padding:20px;
+background:#c9dcdc;
 border:1px solid #9fbcbc;
+padding:20px;
 }
 
-.formbox h3{
+.visabox h3{
 margin-top:0;
+font-size:16px;
 }
 
-input{
+.visabox input{
 width:300px;
 padding:6px;
 margin-top:5px;
@@ -102,12 +114,13 @@ margin:10px 0;
 }
 
 .checkbtn{
+margin-top:10px;
 background:#3b6ea5;
 color:white;
 border:none;
-padding:8px 20px;
+padding:8px 25px;
 cursor:pointer;
-border-radius:3px;
+border-radius:4px;
 }
 
 /* FOOTER */
@@ -115,7 +128,7 @@ border-radius:3px;
 .footer{
 margin-top:40px;
 border-top:1px solid #bbb;
-padding:10px 40px;
+padding:15px 40px;
 display:flex;
 justify-content:space-between;
 font-size:13px;
@@ -131,23 +144,21 @@ color:#777;
 <!-- HEADER -->
 
 <div class="header">
-
-<div style="display:flex;align-items:center;gap:10px;">
-
-<img src="coat.png">
-
-<div>
-MINISTRY OF FOREIGN AFFAIRS AND EUROPEAN INTEGRATION<br>
-OF THE REPUBLIC OF MOLDOVA
+<img src="header-banner.png">
 </div>
 
+<!-- COLOR STRIP -->
+
+<div class="colorbar">
+<div class="c1"></div>
+<div class="c2"></div>
+<div class="c3"></div>
+<div class="c4"></div>
+<div class="c5"></div>
+<div class="c6"></div>
 </div>
 
-<img src="visa-logo.png">
-
-</div>
-
-<!-- NAVBAR -->
+<!-- NAVIGATION -->
 
 <div class="navbar">
 
@@ -160,9 +171,11 @@ OF THE REPUBLIC OF MOLDOVA
 
 </div>
 
-<!-- MAIN SECTION -->
+<!-- MAIN CONTENT -->
 
 <div class="main">
+
+<!-- LEFT PANEL -->
 
 <div class="leftbox">
 
@@ -176,22 +189,25 @@ OF THE REPUBLIC OF MOLDOVA
 
 </div>
 
+<!-- VISA CHECK PANEL -->
 
-<div class="formbox">
+<div class="visabox">
 
 <h3>Seeking visa</h3>
 
 <label>Visa number</label><br>
-<input type="text"><br><br>
+<input type="text" id="visaNumber"><br><br>
 
 <img src="captcha.png" class="captcha"><br>
 
 <a href="#">Refresh</a><br><br>
 
 <label>Verification code</label><br>
-<input type="text"><br><br>
+<input type="text"><br>
 
-<button class="checkbtn">Check</button>
+<button class="checkbtn" onclick="checkVisa()">Check</button>
+
+<p id="result"></p>
 
 </div>
 
@@ -210,5 +226,23 @@ E-mail:
 
 </div>
 
+<script>
+
+function checkVisa(){
+
+var visa=document.getElementById("visaNumber").value;
+
+if(visa=="21123781"){
+document.getElementById("result").innerHTML="Visa Status: Approved";
+}
+else{
+document.getElementById("result").innerHTML="Visa number not found";
+}
+
+}
+
+</script>
+
 </body>
+
 </html>
