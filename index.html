@@ -1,165 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
 
-<title>Check My Visa</title>
+<head>
+
+<title>Visa Moldova</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:#f3f3f3;
+background:#efefef;
 }
 
 /* HEADER */
 
-.header{
-background:#2e6ab3;
-color:white;
-padding:20px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-
-.logo{
-font-size:22px;
-font-weight:bold;
-}
-
-.header-right{
-font-size:14px;
+.header img{
+width:100%;
+display:block;
 }
 
 /* NAVBAR */
 
 .navbar{
-background:#1f4d85;
+background:#2f65a7;
 display:flex;
+justify-content:center;
 }
 
 .navbar a{
 color:white;
-padding:14px 20px;
 text-decoration:none;
-display:block;
+padding:14px 20px;
+font-size:14px;
 }
 
 .navbar a:hover{
-background:#16385f;
+background:#1e4c86;
 }
+
+/* COLOR STRIP */
+
+.colorbar{
+height:6px;
+display:flex;
+}
+
+.colorbar div{
+flex:1;
+}
+
+.c1{background:#f6a623;}
+.c2{background:#a142f4;}
+.c3{background:#34a853;}
+.c4{background:#4285f4;}
+.c5{background:#ea4335;}
+.c6{background:#fbbc05;}
 
 /* MAIN CONTENT */
 
-.container{
-max-width:1000px;
-margin:40px auto;
-background:white;
-padding:30px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-.left-box{
-background:#f2f6fb;
-padding:20px;
-width:250px;
-}
-
 .main{
+width:1000px;
+margin:40px auto;
 display:flex;
-gap:30px;
 }
 
-.links a{
-display:block;
-margin:10px 0;
-color:#1f4d85;
-text-decoration:none;
+/* LEFT BOX */
+
+.leftbox{
+width:230px;
+margin-right:30px;
 }
 
-.links a:hover{
-text-decoration:underline;
+.leftbox .card{
+background:white;
+border:1px solid #ccc;
+padding:15px;
+}
+
+.leftbox button{
+width:100%;
+padding:10px;
+background:#4d87c7;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+/* RIGHT CONTENT */
+
+.content{
+flex:1;
+background:white;
+padding:20px;
+border:1px solid #ccc;
+}
+
+.content h2{
+margin-top:0;
 }
 
 /* FOOTER */
 
-footer{
+.footer{
 margin-top:40px;
-background:#eaeaea;
-padding:20px;
-text-align:center;
+border-top:1px solid #bbb;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
 font-size:13px;
+color:#777;
 }
 
 </style>
+
 </head>
 
 <body>
 
+<!-- HEADER IMAGE -->
+
 <div class="header">
-
-<div class="logo">
-Visa Portal
+<img src="header-banner.png">
 </div>
 
-<div class="header-right">
-Language: EN | FR
+<!-- COLOR BAR -->
+
+<div class="colorbar">
+<div class="c1"></div>
+<div class="c2"></div>
+<div class="c3"></div>
+<div class="c4"></div>
+<div class="c5"></div>
+<div class="c6"></div>
 </div>
 
-</div>
+<!-- NAVIGATION -->
 
 <div class="navbar">
 
-<a href="#">Start</a>
-<a href="#">Do I Need a Visa?</a>
-<a href="#">Apply Now</a>
-<a href="#">Continue Application</a>
-<a href="#">Check Application Status</a>
-<a href="#">Check Visa</a>
+<a href="index.html">START</a>
+<a href="#">DO I NEED A VISA?</a>
+<a href="#">APPLY NOW</a>
+<a href="#">CONTINUE APPLICATION</a>
+<a href="#">CHECK YOUR APPLICATION STATUS</a>
+
+<a href="check-my-visa.html">CHECK VISA</a>
 
 </div>
 
-<div class="container">
-
-<h2>Entry Visa Portal</h2>
+<!-- MAIN -->
 
 <div class="main">
 
-<div class="left-box">
+<div class="leftbox">
 
-<h4>Things you should know</h4>
+<div class="card">
 
-<button style="padding:10px;width:100%;">
-10 Things About Visa
-</button>
+<p><b>Things you should know</b></p>
 
-</div>
-
-<div class="links">
-
-<a href="#">Foreign citizens who do not require visa</a>
-
-<a href="#">Countries that require invitation for visa</a>
-
-<a href="#">Types of visas</a>
-
-<a href="#">Visa fees</a>
+<button>10 things you should know about the eVisa</button>
 
 </div>
 
 </div>
 
+
+<div class="content">
+
+<h2>Entry visa to the Republic of Moldova</h2>
+
+<p>Foreign citizens who do not require visa to enter the Republic of Moldova</p>
+
+<p>List of countries whose nationals require invitations to apply for a visa to enter the Republic of Moldova</p>
+
+<p>The types of visas</p>
+
+<p>Visa fees</p>
+
 </div>
 
-<footer>
+</div>
 
-Moldova eVisa   
-Contact: evisa@mfa.gov.md
+<!-- FOOTER -->
 
-</footer>
+<div class="footer">
+
+<div>Version: 1.6.1.0</div>
+
+<div>
+E-mail:
+<a href="#">evisa@mfa.gov.md</a>
+</div>
+
+</div>
 
 </body>
+
 </html>
