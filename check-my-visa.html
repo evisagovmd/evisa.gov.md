@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <title>Check Visa</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -195,8 +195,11 @@ color:#777;
 <input type="text" id="visa"><br><br>
 
 <label>Verification code</label><br>
+<div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
 <input type="text"><br>
+<div id="captcha"></div>
 
+<input type="text" id="captchaInput">
 <button class="checkbtn" onclick="checkVisa()">Check</button>
 
 <p id="result"></p>
@@ -224,16 +227,43 @@ E-mail:
 
 function checkVisa(){
 
+var captcha = grecaptcha.getResponse();
+
+if(captcha.length === 0){
+
+alert("Please verify that you are not a robot.");
+return;
+var code;
+
+function generateCaptcha(){
+
+var chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+code="";
+
+for(var i=0;i<5;i++){
+
+code+=chars.charAt(Math.floor(Math.random()*chars.length));
+
+}
+
+document.getElementById("captcha").innerHTML=code;
+
+}
+
+generateCaptcha();
+}
+
 var visa=document.getElementById("visa").value;
 
 if(visa=="21123781"){
 document.getElementById("result").innerHTML="Visa Status: Approved";
-}else{
+}
+else{
 document.getElementById("result").innerHTML="Visa not found";
 }
 
 }
-
 </script>
 
 </body>
