@@ -1,127 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<title>Check Visa</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Check Visa Status</title>
 
 <style>
 
 body{
+font-family: Arial, sans-serif;
 margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#efefef;
-}
-
-.page-container{
-width:1000px;
-margin:0 auto;
-background:white;
+background:#f3f3f3;
 }
 
 /* HEADER */
 
+.header{
+width:100%;
+text-align:center;
+background:white;
+}
+
 .header img{
 width:100%;
-display:block;
+max-height:150px;
+object-fit:cover;
 }
 
 /* NAVBAR */
 
 .navbar{
 display:flex;
-background:#2f65a7;
+justify-content:center;
+background:white;
+border-bottom:1px solid #ddd;
 }
 
-.nav-item{
-flex:1;
-text-align:center;
+.navbar a{
+padding:15px 25px;
+text-decoration:none;
+color:#333;
+font-weight:600;
 }
 
-.nav-color{
+.navbar a:hover{
+background:#f0f0f0;
+}
+
+/* COLOR BARS */
+
+.color-bars{
+display:flex;
 height:6px;
 }
 
-.nav-item a{
-display:block;
-color:white;
-text-decoration:none;
-padding:12px 0;
-font-size:14px;
-}
+.bar1{background:#0072ce;flex:1;}
+.bar2{background:#ffcc00;flex:1;}
+.bar3{background:#e41e2b;flex:1;}
+.bar4{background:#009639;flex:1;}
 
-.nav-item a:hover{
-background:#1e4c86;
-}
+/* MAIN CONTAINER */
 
-/* COLORS */
-
-.c1{background:#f6a623;}
-.c2{background:#a142f4;}
-.c3{background:#34a853;}
-.c4{background:#4285f4;}
-.c5{background:#ea4335;}
-.c6{background:#fbbc05;}
-
-/* MAIN */
-
-.main{
-display:flex;
-padding:30px;
-}
-
-.leftbox{
-width:230px;
-margin-right:30px;
-}
-
-.leftbox .card{
+.container{
+max-width:500px;
+margin:60px auto;
 background:white;
-border:1px solid #ccc;
-padding:15px;
+padding:35px;
+border-radius:6px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
 }
 
-.leftbox button{
+h2{
+margin-top:0;
+text-align:center;
+}
+
+/* FORM */
+
+label{
+display:block;
+margin-top:15px;
+font-weight:600;
+}
+
+input{
 width:100%;
 padding:10px;
-background:#4d87c7;
-border:none;
+margin-top:5px;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+/* CHECKBOX */
+
+.robot-check{
+margin-top:20px;
+display:flex;
+align-items:center;
+gap:10px;
+background:#f9f9f9;
+padding:10px;
+border:1px solid #ddd;
+border-radius:4px;
+}
+
+/* BUTTON */
+
+button{
+margin-top:25px;
+width:100%;
+padding:12px;
+background:#0072ce;
 color:white;
+border:none;
+border-radius:4px;
+font-size:16px;
 cursor:pointer;
 }
 
-.visabox{
-flex:1;
-background:#c9dcdc;
-border:1px solid #9fbcbc;
-padding:20px;
+button:hover{
+background:#005fa3;
 }
 
-.visabox input{
-width:300px;
-padding:6px;
+/* RESULT */
+
+.result{
+margin-top:25px;
+padding:15px;
+border-radius:4px;
+background:#f5f5f5;
+border:1px solid #ddd;
 }
 
-.checkbtn{
-margin-top:10px;
-background:#3b6ea5;
-color:white;
-border:none;
-padding:8px 25px;
-cursor:pointer;
+.valid{
+color:green;
+font-weight:bold;
+}
+
+.invalid{
+color:red;
+font-weight:bold;
 }
 
 /* FOOTER */
 
-.footer{
-border-top:1px solid #bbb;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
+footer{
+text-align:center;
+padding:25px;
+margin-top:60px;
+background:white;
+border-top:1px solid #ddd;
 font-size:13px;
-color:#777;
+color:#555;
 }
 
 </style>
@@ -130,9 +162,7 @@ color:#777;
 
 <body>
 
-<div class="page-container">
-
-<!-- HEADER -->
+<!-- HEADER IMAGE -->
 
 <div class="header">
 <img src="header-banner.png">
@@ -141,150 +171,86 @@ color:#777;
 <!-- NAVBAR -->
 
 <div class="navbar">
-
-<div class="nav-item">
-<div class="nav-color c1"></div>
-<a href="index.html">START</a>
-</div>
-
-<div class="nav-item">
-<div class="nav-color c2"></div>
-<a href="#">DO I NEED A VISA?</a>
-</div>
-
-<div class="nav-item">
-<div class="nav-color c3"></div>
-<a href="#">APPLY NOW</a>
-</div>
-
-<div class="nav-item">
-<div class="nav-color c4"></div>
-<a href="#">CONTINUE APPLICATION</a>
-</div>
-
-<div class="nav-item">
-<div class="nav-color c5"></div>
-<a href="#">CHECK YOUR APPLICATION STATUS</a>
-</div>
-
-<div class="nav-item">
-<div class="nav-color c6"></div>
+<a href="index.html">HOME</a>
 <a href="check-my-visa.html">CHECK VISA</a>
+<a href="#">CONTACT</a>
 </div>
 
+<!-- COLOR BARS -->
+
+<div class="color-bars">
+<div class="bar1"></div>
+<div class="bar2"></div>
+<div class="bar3"></div>
+<div class="bar4"></div>
 </div>
 
-<!-- MAIN -->
+<!-- MAIN FORM -->
 
-<div class="main">
+<div class="container">
 
-<div class="leftbox">
+<h2>Check Visa Status</h2>
 
-<div class="card">
-<p><b>Things you should know</b></p>
-<button>10 things you should know about the eVisa</button>
+<label>Visa Number</label>
+<input type="text" id="visaNumber" placeholder="Enter visa number">
+
+<label>Passport Number</label>
+<input type="text" id="passportNumber" placeholder="Enter passport number">
+
+<div class="robot-check">
+<input type="checkbox" id="robotCheck">
+<label for="robotCheck">I'm not a robot</label>
 </div>
 
-</div>
+<button onclick="checkVisa()">Check Visa</button>
 
-<div class="visabox">
-
-<h3>Seeking visa</h3>
-
-<label>Visa number</label><br>
-<input type="text" id="visa"><br><br>
-
-<label>Verification code</label><br>
-<div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
-<input type="text"><br>
-
-<button class="checkbtn" onclick="checkVisa()">Check</button>
-
-<p id="result"></p>
-
-</div>
-
-</div>
-
-<!-- FOOTER -->
-
-<div class="footer">
-
-<div>Version: 1.6.1.0</div>
-
-<div>
-E-mail:
-<a href="#">evisa@mfa.gov.md</a>
-</div>
+<div id="result"></div>
 
 </div>
 
-</div>
+<footer>
+Visa Verification Portal
+</footer>
 
 <script>
 
 function checkVisa(){
-var userCaptcha=document.getElementById("captchaInput").value;
 
-if(userCaptcha!=code){
+var visa=document.getElementById("visaNumber").value;
+var passport=document.getElementById("passportNumber").value;
+var robot=document.getElementById("robotCheck").checked;
 
-alert("Incorrect captcha");
+var result=document.getElementById("result");
 
-generateCaptcha();
+if(!robot){
 
+alert("Please confirm you are not a robot.");
 return;
 
 }
 
-var visa=document.getElementById("visa").value;
+if(visa=="" || passport==""){
 
-if(visa=="21123781"){
-document.getElementById("result").innerHTML="Visa Status: Approved";
-}
-else{
-document.getElementById("result").innerHTML="Visa not found";
-}
-
-}
-var captcha = grecaptcha.getResponse();
-
-if(captcha.length === 0){
-
-alert("Please verify that you are not a robot.");
+alert("Please fill all fields.");
 return;
-var code;
-
-function generateCaptcha(){
-
-var chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-
-code="";
-
-for(var i=0;i<5;i++){
-
-code+=chars.charAt(Math.floor(Math.random()*chars.length));
 
 }
 
-document.getElementById("captcha").innerHTML=code;
+/* SAMPLE DATA */
+
+if(visa=="21123781" && passport=="A11724249"){
+
+result.innerHTML="<div class='result valid'>Visa Status: Approved</div>";
+
+}else{
+
+result.innerHTML="<div class='result invalid'>Visa record not found.</div>";
 
 }
 
-generateCaptcha();
 }
 
-var visa=document.getElementById("visa").value;
-
-if(visa=="21123781"){
-document.getElementById("result").innerHTML="Visa Status: Approved";
-}
-else{
-document.getElementById("result").innerHTML="Visa not found";
-}
-
-}
 </script>
 
 </body>
-
 </html>
