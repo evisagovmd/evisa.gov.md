@@ -3,75 +3,62 @@
 
 <head>
 
-<title>Visa Moldova</title>
+<title>eVisa Portal</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
-.page-container{
-width:1000px;
-margin:0 auto;
-background:white;
-}
+
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
 background:#efefef;
 }
 
+/* CENTER CONTAINER */
+
+.page-container{
+width:1000px;
+margin:0 auto;
+background:white;
+}
+
 /* HEADER */
 
 .header img{
-width:60%;
+width:100%;
 display:block;
 }
-<div class="page-container">
 
-<div class="header">
-<img src="header-banner.png">
-</div>
+/* NAVIGATION */
 
-<div class="colorbar">
-.colorbar{
+.navbar{
 display:flex;
+background:#2f65a7;
+}
+
+.nav-item{
+flex:1;
+text-align:center;
+}
+
+.nav-color{
 height:6px;
 }
 
-.colorbar div{
-flex:1;
+.nav-item a{
+display:block;
+color:white;
+text-decoration:none;
+padding:12px 0;
+font-size:14px;
 }
 
-.c1{background:#f6a623;}
-.c2{background:#a142f4;}
-.c3{background:#34a853;}
-.c4{background:#4285f4;}
-.c5{background:#ea4335;}
-.c6{background:#fbbc05;}
-</div>
-
-<div class="navbar">
-
-<a href="index.html">START</a>
-<a href="#">DO I NEED A VISA?</a>
-<a href="#">APPLY NOW</a>
-<a href="#">CONTINUE APPLICATION</a>
-<a href="#">CHECK YOUR APPLICATION STATUS</a>
-<a href="check-my-visa.html">CHECK VISA</a>
-
-</div>
-
-</div>
-  
-/* COLOR STRIP */
-
-.colorbar{
-height:6px;
-display:flex;
+.nav-item a:hover{
+background:#1e4c86;
 }
 
-.colorbar div{
-flex:1;
-}
+/* COLORS */
 
 .c1{background:#f6a623;}
 .c2{background:#a142f4;}
@@ -83,12 +70,9 @@ flex:1;
 /* MAIN CONTENT */
 
 .main{
-width:1000px;
-margin:40px auto;
 display:flex;
+padding:30px;
 }
-
-/* LEFT BOX */
 
 .leftbox{
 width:230px;
@@ -110,13 +94,8 @@ color:white;
 cursor:pointer;
 }
 
-/* RIGHT CONTENT */
-
 .content{
 flex:1;
-background:white;
-padding:20px;
-border:1px solid #ccc;
 }
 
 .content h2{
@@ -126,7 +105,6 @@ margin-top:0;
 /* FOOTER */
 
 .footer{
-margin-top:40px;
 border-top:1px solid #bbb;
 padding:15px 40px;
 display:flex;
@@ -141,34 +119,47 @@ color:#777;
 
 <body>
 
-<!-- HEADER IMAGE -->
+<div class="page-container">
+
+<!-- HEADER -->
 
 <div class="header">
 <img src="header-banner.png">
 </div>
 
-<!-- COLOR BAR -->
-
-<div class="colorbar">
-<div class="c1"></div>
-<div class="c2"></div>
-<div class="c3"></div>
-<div class="c4"></div>
-<div class="c5"></div>
-<div class="c6"></div>
-</div>
-
-<!-- NAVIGATION -->
+<!-- NAVBAR -->
 
 <div class="navbar">
 
+<div class="nav-item">
+<div class="nav-color c1"></div>
 <a href="index.html">START</a>
-<a href="#">DO I NEED A VISA?</a>
-<a href="#">APPLY NOW</a>
-<a href="#">CONTINUE APPLICATION</a>
-<a href="#">CHECK YOUR APPLICATION STATUS</a>
+</div>
 
+<div class="nav-item">
+<div class="nav-color c2"></div>
+<a href="#">DO I NEED A VISA?</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c3"></div>
+<a href="#">APPLY NOW</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c4"></div>
+<a href="#">CONTINUE APPLICATION</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c5"></div>
+<a href="#">CHECK YOUR APPLICATION STATUS</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c6"></div>
 <a href="check-my-visa.html">CHECK VISA</a>
+</div>
 
 </div>
 
@@ -179,27 +170,23 @@ color:#777;
 <div class="leftbox">
 
 <div class="card">
-
 <p><b>Things you should know</b></p>
-
 <button>10 things you should know about the eVisa</button>
-
 </div>
 
 </div>
-
 
 <div class="content">
 
-<h2>Entry visa to the Republic of Moldova</h2>
+<h2>Entry visa to the Republic</h2>
 
-<p>Foreign citizens who do not require visa to enter the Republic of Moldova</p>
+<p>Foreign citizens who do not require visa to enter.</p>
 
-<p>List of countries whose nationals require invitations to apply for a visa to enter the Republic of Moldova</p>
+<p>List of countries whose nationals require invitations.</p>
 
-<p>The types of visas</p>
+<p>The types of visas.</p>
 
-<p>Visa fees</p>
+<p>Visa fees.</p>
 
 </div>
 
@@ -214,6 +201,8 @@ color:#777;
 <div>
 E-mail:
 <a href="#">evisa@mfa.gov.md</a>
+</div>
+
 </div>
 
 </div>
