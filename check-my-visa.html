@@ -197,9 +197,7 @@ color:#777;
 <label>Verification code</label><br>
 <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
 <input type="text"><br>
-<div id="captcha"></div>
 
-<input type="text" id="captchaInput">
 <button class="checkbtn" onclick="checkVisa()">Check</button>
 
 <p id="result"></p>
@@ -226,7 +224,28 @@ E-mail:
 <script>
 
 function checkVisa(){
+var userCaptcha=document.getElementById("captchaInput").value;
 
+if(userCaptcha!=code){
+
+alert("Incorrect captcha");
+
+generateCaptcha();
+
+return;
+
+}
+
+var visa=document.getElementById("visa").value;
+
+if(visa=="21123781"){
+document.getElementById("result").innerHTML="Visa Status: Approved";
+}
+else{
+document.getElementById("result").innerHTML="Visa not found";
+}
+
+}
 var captcha = grecaptcha.getResponse();
 
 if(captcha.length === 0){
