@@ -15,23 +15,48 @@ font-family:Arial, Helvetica, sans-serif;
 background:#efefef;
 }
 
-/* HEADER IMAGE */
+.page-container{
+width:1000px;
+margin:0 auto;
+background:white;
+}
+
+/* HEADER */
 
 .header img{
-width:60%;
+width:100%;
 display:block;
 }
 
-/* COLOR STRIP */
+/* NAVBAR */
 
-.colorbar{
-height:6px;
+.navbar{
 display:flex;
+background:#2f65a7;
 }
 
-.colorbar div{
+.nav-item{
 flex:1;
+text-align:center;
 }
+
+.nav-color{
+height:6px;
+}
+
+.nav-item a{
+display:block;
+color:white;
+text-decoration:none;
+padding:12px 0;
+font-size:14px;
+}
+
+.nav-item a:hover{
+background:#1e4c86;
+}
+
+/* COLORS */
 
 .c1{background:#f6a623;}
 .c2{background:#a142f4;}
@@ -40,34 +65,12 @@ flex:1;
 .c5{background:#ea4335;}
 .c6{background:#fbbc05;}
 
-/* NAVBAR */
-
-.navbar{
-background:#2f65a7;
-display:flex;
-justify-content:center;
-}
-
-.navbar a{
-color:white;
-text-decoration:none;
-padding:14px 20px;
-font-size:14px;
-}
-
-.navbar a:hover{
-background:#1e4c86;
-}
-
-/* MAIN LAYOUT */
+/* MAIN */
 
 .main{
-width:1000px;
-margin:40px auto;
 display:flex;
+padding:30px;
 }
-
-/* LEFT INFO BOX */
 
 .leftbox{
 width:230px;
@@ -89,8 +92,6 @@ color:white;
 cursor:pointer;
 }
 
-/* VISA FORM AREA */
-
 .visabox{
 flex:1;
 background:#c9dcdc;
@@ -98,19 +99,9 @@ border:1px solid #9fbcbc;
 padding:20px;
 }
 
-.visabox h3{
-margin-top:0;
-font-size:16px;
-}
-
 .visabox input{
 width:300px;
 padding:6px;
-margin-top:5px;
-}
-
-.captcha{
-margin:10px 0;
 }
 
 .checkbtn{
@@ -120,13 +111,11 @@ color:white;
 border:none;
 padding:8px 25px;
 cursor:pointer;
-border-radius:4px;
 }
 
 /* FOOTER */
 
 .footer{
-margin-top:40px;
 border-top:1px solid #bbb;
 padding:15px 40px;
 display:flex;
@@ -141,66 +130,69 @@ color:#777;
 
 <body>
 
+<div class="page-container">
+
 <!-- HEADER -->
 
 <div class="header">
 <img src="header-banner.png">
 </div>
 
-<!-- COLOR STRIP -->
-
-<div class="colorbar">
-<div class="c1"></div>
-<div class="c2"></div>
-<div class="c3"></div>
-<div class="c4"></div>
-<div class="c5"></div>
-<div class="c6"></div>
-</div>
-
-<!-- NAVIGATION -->
+<!-- NAVBAR -->
 
 <div class="navbar">
 
+<div class="nav-item">
+<div class="nav-color c1"></div>
 <a href="index.html">START</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c2"></div>
 <a href="#">DO I NEED A VISA?</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c3"></div>
 <a href="#">APPLY NOW</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c4"></div>
 <a href="#">CONTINUE APPLICATION</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c5"></div>
 <a href="#">CHECK YOUR APPLICATION STATUS</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c6"></div>
 <a href="check-my-visa.html">CHECK VISA</a>
+</div>
 
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 
 <div class="main">
-
-<!-- LEFT PANEL -->
 
 <div class="leftbox">
 
 <div class="card">
-
 <p><b>Things you should know</b></p>
-
 <button>10 things you should know about the eVisa</button>
-
 </div>
 
 </div>
-
-<!-- VISA CHECK PANEL -->
 
 <div class="visabox">
 
 <h3>Seeking visa</h3>
 
 <label>Visa number</label><br>
-<input type="text" id="visaNumber"><br><br>
-
-<img src="captcha.png" class="captcha"><br>
-
-<a href="#">Refresh</a><br><br>
+<input type="text" id="visa"><br><br>
 
 <label>Verification code</label><br>
 <input type="text"><br>
@@ -226,17 +218,18 @@ E-mail:
 
 </div>
 
+</div>
+
 <script>
 
 function checkVisa(){
 
-var visa=document.getElementById("visaNumber").value;
+var visa=document.getElementById("visa").value;
 
 if(visa=="21123781"){
 document.getElementById("result").innerHTML="Visa Status: Approved";
-}
-else{
-document.getElementById("result").innerHTML="Visa number not found";
+}else{
+document.getElementById("result").innerHTML="Visa not found";
 }
 
 }
