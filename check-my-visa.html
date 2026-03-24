@@ -1,160 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Check Visa</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 body{
-font-family: Arial, sans-serif;
 margin:0;
-background:#f2f2f2;
+font-family:Arial, Helvetica, sans-serif;
+background:#efefef;
 }
 
-/* MAIN PAGE WIDTH (CENTERED LIKE MOLDOVA SITE) */
+/* CENTER CONTAINER */
 
-.page{
-max-width:1100px;
-margin:auto;
+.page-container{
+width:1000px;
+margin:0 auto;
 background:white;
 }
 
 /* HEADER */
 
-.header{
-text-align:center;
-padding:20px 0;
-}
-
 .header img{
-height:110px;
+width:100%;
+display:block;
 }
 
 /* NAVIGATION */
 
 .navbar{
 display:flex;
-justify-content:center;
-border-top:1px solid #ddd;
-border-bottom:1px solid #ddd;
+background:#2f65a7;
 }
 
 .nav-item{
+flex:1;
 text-align:center;
-padding:15px 25px;
-font-weight:600;
-color:#333;
-text-decoration:none;
-position:relative;
 }
 
-.nav-item:hover{
-background:#f7f7f7;
+.nav-color{
+height:6px;
 }
 
-/* SMALL COLOR BLOCKS */
-
-.nav-item::after{
-content:"";
+.nav-item a{
 display:block;
-height:5px;
-width:100%;
-position:absolute;
-bottom:-1px;
-left:0;
+color:white;
+text-decoration:none;
+padding:12px 0;
+font-size:14px;
 }
 
-.home::after{background:#2b7bb9;}
-.visa::after{background:#f5a623;}
-.contact::after{background:#27ae60;}
+.nav-item a:hover{
+background:#1e4c86;
+}
 
-/* CONTENT AREA */
+/* COLORS */
 
-.container{
-max-width:500px;
-margin:60px auto;
-padding:35px;
-border:1px solid #ddd;
+.c1{background:#f6a623;}
+.c2{background:#a142f4;}
+.c3{background:#34a853;}
+.c4{background:#4285f4;}
+.c5{background:#ea4335;}
+.c6{background:#fbbc05;}
+
+/* MAIN CONTENT */
+
+.main{
+padding:40px;
+display:flex;
+justify-content:center;
+}
+
+/* VISA FORM */
+
+.visa-box{
+width:420px;
+border:1px solid #ccc;
+padding:25px;
 background:white;
 }
 
-h2{
+.visa-box h2{
 margin-top:0;
-text-align:center;
 }
-
-/* FORM */
 
 label{
 display:block;
 margin-top:15px;
-font-weight:600;
+font-weight:bold;
 }
 
 input{
 width:100%;
-padding:10px;
+padding:8px;
 margin-top:5px;
 border:1px solid #ccc;
 }
 
-/* CHECKBOX */
-
-.robot-check{
-margin-top:20px;
-display:flex;
-align-items:center;
-gap:10px;
+.robot{
+margin-top:15px;
 }
 
-/* BUTTON */
-
 button{
-margin-top:25px;
+margin-top:20px;
+padding:10px;
 width:100%;
-padding:12px;
-background:#2b7bb9;
-color:white;
+background:#4d87c7;
 border:none;
+color:white;
 cursor:pointer;
 }
 
 button:hover{
-background:#1f5f8d;
+background:#376ea7;
 }
-
-/* RESULT */
 
 .result{
 margin-top:20px;
-padding:15px;
-border:1px solid #ddd;
-background:#f9f9f9;
-}
-
-.valid{
-color:green;
-font-weight:bold;
-}
-
-.invalid{
-color:red;
-font-weight:bold;
+padding:10px;
+border:1px solid #ccc;
+background:#f5f5f5;
 }
 
 /* FOOTER */
 
-footer{
-text-align:center;
-padding:30px;
-border-top:1px solid #ddd;
-margin-top:60px;
+.footer{
+border-top:1px solid #bbb;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
 font-size:13px;
-color:#555;
+color:#777;
 }
 
 </style>
@@ -163,7 +143,7 @@ color:#555;
 
 <body>
 
-<div class="page">
+<div class="page-container">
 
 <!-- HEADER -->
 
@@ -171,21 +151,47 @@ color:#555;
 <img src="header-banner.png">
 </div>
 
-<!-- NAVIGATION -->
+<!-- NAVBAR -->
 
 <div class="navbar">
 
-<a class="nav-item home" href="index.html">HOME</a>
+<div class="nav-item">
+<div class="nav-color c1"></div>
+<a href="index.html">START</a>
+</div>
 
-<a class="nav-item visa" href="check-my-visa.html">CHECK VISA</a>
+<div class="nav-item">
+<div class="nav-color c2"></div>
+<a href="#">DO I NEED A VISA?</a>
+</div>
 
-<a class="nav-item contact" href="#">CONTACT</a>
+<div class="nav-item">
+<div class="nav-color c3"></div>
+<a href="#">APPLY NOW</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c4"></div>
+<a href="#">CONTINUE APPLICATION</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c5"></div>
+<a href="#">CHECK YOUR APPLICATION STATUS</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c6"></div>
+<a href="check-my-visa.html">CHECK VISA</a>
+</div>
 
 </div>
 
-<!-- FORM -->
+<!-- MAIN -->
 
-<div class="container">
+<div class="main">
+
+<div class="visa-box">
 
 <h2>Check Visa Status</h2>
 
@@ -195,9 +201,8 @@ color:#555;
 <label>Passport Number</label>
 <input type="text" id="passport">
 
-<div class="robot-check">
-<input type="checkbox" id="robot">
-<label for="robot">I'm not a robot</label>
+<div class="robot">
+<input type="checkbox" id="robot"> I'm not a robot
 </div>
 
 <button onclick="checkVisa()">Check Visa</button>
@@ -206,9 +211,20 @@ color:#555;
 
 </div>
 
-<footer>
-Visa Verification Portal
-</footer>
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<div>Version: 1.6.1.0</div>
+
+<div>
+E-mail:
+<a href="#">evisa@mfa.gov.md</a>
+</div>
+
+</div>
 
 </div>
 
@@ -220,20 +236,20 @@ var visa=document.getElementById("visa").value;
 var passport=document.getElementById("passport").value;
 var robot=document.getElementById("robot").checked;
 
-var result=document.getElementById("result");
-
 if(!robot){
-alert("Please confirm you are not a robot.");
+alert("Please confirm you are not a robot");
 return;
 }
 
+var result=document.getElementById("result");
+
 if(visa=="21123781" && passport=="A11724249"){
 
-result.innerHTML="<div class='result valid'>Visa Status: Approved</div>";
+result.innerHTML="<div class='result' style='color:green'>Visa Status: Approved</div>";
 
 }else{
 
-result.innerHTML="<div class='result invalid'>Visa record not found</div>";
+result.innerHTML="<div class='result' style='color:red'>Visa not found</div>";
 
 }
 
