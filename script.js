@@ -49,39 +49,40 @@ function showResult(record){
 var result=document.getElementById("result");
 
 result.innerHTML = `
-<table class="result-table">
 
-<tr>
-<th>Photo</th>
-<td><img src="${record.photo}" class="photo"></td>
-</tr>
+<div class="result-card">
 
-<tr>
-<th>Name</th>
-<td>${record.name}</td>
-</tr>
+<div class="result-header">Seeking visa</div>
 
-<tr>
-<th>Passport</th>
-<td>${record.passport}</td>
-</tr>
+<div class="result-content">
 
-<tr>
-<th>Nationality</th>
-<td>${record.nationality}</td>
-</tr>
+<div class="result-photo">
+<img src="${record.photo}">
+</div>
 
-<tr>
-<th>Visa Type</th>
-<td>${record.visa_type}</td>
-</tr>
+<div class="result-info">
 
-<tr>
-<th>Status</th>
-<td class="status">${record.status}</td>
-</tr>
+<p>Surname: <b>${record.surname}</b></p>
+<p>First name: <b>${record.firstname}</b></p>
+<p>Date of birth: <b>${record.dob}</b></p>
+<p>Citizenship: <b>${record.citizenship}</b></p>
+<p>Passport number: <b>${record.passport}</b></p>
 
-</table>
+<br>
+
+<p>Visa status: <span class="visa-cancelled">${record.status}</span></p>
+<p>Visa validity: <b>${record.validity}</b></p>
+<p>Visa type: <b>${record.visatype}</b></p>
+<p>Visit purpose: <b>${record.purpose}</b></p>
+
+</div>
+
+</div>
+
+<button class="search-again" onclick="location.reload()">Another search</button>
+
+</div>
+
 `;
 
 }
