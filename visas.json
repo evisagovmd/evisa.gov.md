@@ -1,32 +1,25 @@
 {
  "records":[
 
-  {
-   "name":"Md Shahidul Islam",
-   "nationality":"Bangladesh",
-   "passport":"A11724249",
-   "visa_number":"21123781",
-   "visa_type":"Work Permit",
-   "status":"Approved"
-  },
+ {
+ "name":"Md Shahidul Islam",
+ "nationality":"Bangladesh",
+ "passport":"A11724249",
+ "visa_number":"21123781",
+ "visa_type":"Work Permit",
+ "status":"Approved",
+ "photo":"shahidul.jpg"
+ },
 
-  {
-   "name":"Md Hasan Ali",
-   "nationality":"Bangladesh",
-   "passport":"A11175741",
-   "visa_number":"21123782",
-   "visa_type":"Work Permit",
-   "status":"Approved"
-  },
-
-  {
-   "name":"Md Asraful Islam",
-   "nationality":"Bangladesh",
-   "passport":"A15269178",
-   "visa_number":"21123783",
-   "visa_type":"Work Permit",
-   "status":"Processing"
-  }
+ {
+ "name":"Md Hasan Ali",
+ "nationality":"Bangladesh",
+ "passport":"A11175741",
+ "visa_number":"21123782",
+ "visa_type":"Work Permit",
+ "status":"Approved",
+ "photo":"hasan.jpg"
+ }
 
  ]
 }
