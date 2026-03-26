@@ -70,7 +70,7 @@ result.innerHTML = `
 
 <br>
 
-<p>Visa status: <span class="visa-cancelled">${record.status}</span></p>
+<p>Visa status: <span class="${record.status.toLowerCase().includes('cancel') ? 'visa-cancelled' : 'visa-approved'}">${record.status}</span></p>
 <p>Visa validity: <b>${record.validity}</b></p>
 <p>Visa type: <b>${record.visatype}</b></p>
 <p>Visit purpose: <b>${record.purpose}</b></p>
