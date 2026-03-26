@@ -164,12 +164,12 @@ border:1px solid #ff9999;
 color:#c00;
 }
 
-  .result-card{
+ .result-card{
 width:520px;
-background:#b9ced1;
+background:#c7d9dc;
 padding:20px;
-border:1px solid #999;
-margin-top:20px;
+border:1px solid #888;
+margin:20px auto;
 }
 
 .result-header{
@@ -180,15 +180,23 @@ margin-bottom:10px;
 .result-content{
 display:flex;
 gap:20px;
+align-items:flex-start;
 }
 
 .result-photo img{
 width:120px;
 border:1px solid #444;
+background:white;
+padding:2px;
 }
 
 .result-info p{
 margin:6px 0;
+}
+
+  .visa-approved{
+color:green;
+font-weight:bold;
 }
 
 .visa-cancelled{
@@ -342,34 +350,7 @@ E-mail:
 
 </div>
 
-<script>
-
-function checkVisa(){
-
-var visa=document.getElementById("visa").value;
-var passport=document.getElementById("passport").value;
-var robot=document.getElementById("robot").checked;
-
-if(!robot){
-alert("Please confirm you are not a robot");
-return;
-}
-
-var result=document.getElementById("result");
-
-if(visa=="21123781" && passport=="A11724249"){
-
-result.innerHTML="<div class='result' style='color:green'>Visa Status: Approved</div>";
-
-}else{
-
-result.innerHTML="<div class='result' style='color:red'>Visa not found</div>";
-
-}
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
