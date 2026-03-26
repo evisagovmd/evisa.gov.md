@@ -46,9 +46,15 @@ document.getElementById("result").innerHTML=
 
 function showResult(record){
 
-var table=`
+var result=document.getElementById("result");
 
+result.innerHTML = `
 <table class="result-table">
+
+<tr>
+<th>Photo</th>
+<td><img src="${record.photo}" class="photo"></td>
+</tr>
 
 <tr>
 <th>Name</th>
@@ -56,7 +62,7 @@ var table=`
 </tr>
 
 <tr>
-<th>Passport Number</th>
+<th>Passport</th>
 <td>${record.passport}</td>
 </tr>
 
@@ -76,9 +82,6 @@ var table=`
 </tr>
 
 </table>
-
 `;
-
-document.getElementById("result").innerHTML=table;
 
 }
