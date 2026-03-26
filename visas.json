@@ -2,23 +2,17 @@
  "records":[
 
  {
- "name":"Md Shahidul Islam",
- "nationality":"Bangladesh",
- "passport":"A11724249",
+ "surname":"RASHID",
+ "firstname":"MD MAMUNOR",
+ "dob":"18/12/1989",
+ "citizenship":"INDIA",
+ "passport":"B00526885",
  "visa_number":"21123781",
- "visa_type":"Work Permit",
- "status":"Approved",
- "photo":"shahidul.jpg"
- },
-
- {
- "name":"Md Hasan Ali",
- "nationality":"Bangladesh",
- "passport":"A11175741",
- "visa_number":"21123782",
- "visa_type":"Work Permit",
- "status":"Approved",
- "photo":"hasan.jpg"
+ "status":"Canceled visa",
+ "validity":"29/12/2025",
+ "visatype":"B",
+ "purpose":"Transit Visa",
+ "photo":"mamun.jpg"
  }
 
  ]
