@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Visa Check</title>
-</head>
+
 <title>Check Visa</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -260,7 +260,32 @@ justify-content:space-between;
 font-size:13px;
 color:#777;
 }
+@media screen and (max-width:768px){
 
+body{
+font-size:14px;
+}
+
+.container{
+width:95%;
+padding:10px;
+}
+
+.result-table{
+font-size:14px;
+}
+
+.result-table th,
+.result-table td{
+padding:6px;
+}
+
+img{
+max-width:100%;
+height:auto;
+}
+
+}
 </style>
 
 </head>
@@ -268,7 +293,13 @@ color:#777;
 <body>
 
 <div class="page-container">
-
+.container{
+max-width:900px;
+width:95%;
+margin:auto;
+padding:20px;
+box-sizing:border-box;
+}
 <!-- HEADER -->
 
 <div class="header">
