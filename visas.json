@@ -14,8 +14,8 @@
  "purpose":"Work Permit",
  "photo":"kaoser.jpg"
  },
-
-   {
+  
+{
  "surname":"RONI",
  "firstname":"MD NAZMUL HOSSAIN",
  "dob":"01/01/1987",
@@ -28,6 +28,7 @@
  "purpose":"Work Permit",
  "photo":"roni.jpg"
  },
+  
   {
  "surname":"SHEIKH",
  "firstname":"MD ARZU",
@@ -41,7 +42,8 @@
  "purpose":"Work Permit",
  "photo":"arzu.jpg"
  },
-   {
+  
+{
  "surname":"MOHSIN",
  "firstname":"MD",
  "dob":"01/02/1966",
@@ -54,7 +56,8 @@
  "purpose":"Work Permit",
  "photo":"mohsin.jpg"
  },
-   {
+  
+{
  "surname":"ALI",
  "firstname":"MD AKASH",
  "dob":"01/12/2005",
@@ -67,7 +70,8 @@
  "purpose":"Work Permit",
  "photo":"akash.jpg"
  },
-   {
+  
+{
  "surname":"SARKER",
  "firstname":"MD SOFEKUL",
  "dob":"17/06/1979",
@@ -79,6 +83,7 @@
  "visatype":"D Long Stay",
  "purpose":"Work Permit",
  "photo":"sofekul.jpg"
- }, 
+ }
+  
  ]
 }
