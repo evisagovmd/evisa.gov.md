@@ -4,9 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Visa Check</title>
-
-<title>Check Visa</title>
+<title>Check Visa Status</title>
 
 <style>
 
@@ -165,34 +163,47 @@ border:1px solid #ff9999;
 color:#c00;
 }
 
- .result-card{
-width:520px;
-background:#c7d9dc;
+.result-card{
+max-width:720px;
+margin:25px auto;
+border:1px solid #bbb;
+background:#e8f0f2;
 padding:20px;
-border:1px solid #888;
-margin:20px auto;
+box-shadow:0 2px 4px rgba(0,0,0,0.1);
 }
-
 .result-header{
+font-size:18px;
 font-weight:bold;
-margin-bottom:10px;
+margin-bottom:15px;
+border-bottom:1px solid #aaa;
+padding-bottom:6px;
 }
 
 .result-content{
 display:flex;
-gap:20px;
+justify-content:space-between;
+gap:25px;
 align-items:flex-start;
 }
 
-.result-photo img{
-width:120px;
-border:1px solid #444;
-background:white;
-padding:2px;
+.result-info{
+flex:1;
+font-size:15px;
 }
 
 .result-info p{
-margin:6px 0;
+margin:8px 0;
+}
+
+.result-photo{
+width:140px;
+}
+
+.result-photo img{
+width:100%;
+border:2px solid #333;
+background:white;
+padding:3px;
 }
 
   .visa-approved{
@@ -284,6 +295,27 @@ height:auto;
 }
 
 }
+ @media (max-width:600px){
+
+.result-content{
+flex-direction:column;
+align-items:center;
+text-align:left;
+}
+
+.result-photo{
+margin-top:15px;
+}
+
+.visa-box{
+width:100%;
+}
+
+.page-container{
+width:95%;
+}
+
+}
 </style>
 
 </head>
@@ -355,7 +387,7 @@ height:auto;
 
 <button onclick="checkVisa()">Check Visa</button>
 
-<div id="result"></div>
+<div id="result" class="result"></div>
 
 </div>
 
