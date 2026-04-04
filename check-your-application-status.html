@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Check Your Application Status</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#efefef;
+}
+
+/* MAIN CONTAINER */
+
+.page-container{
+max-width:1000px;
+width:95%;
+margin:auto;
+background:white;
+}
+
+  /* HEADER */
+
+.header img{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* NAVIGATION */
+
+/* KEEP HEADER SAME ON MOBILE */
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+background:#2f65a7;
+}
+
+.nav-item{
+flex:1;
+text-align:center;
+}
+
+.nav-color{
+height:6px;
+}
+.nav-item a{
+display:block; 
+color:white; 
+text-decoration:none; 
+padding:12px 0; 
+font-size:14px; }
+}
+
+.nav-item a:hover{
+background:#1e4c86;
+}
+
+/* COLORS */
+
+.c1{background:#f6a623;}
+.c2{background:#a142f4;}
+.c3{background:#34a853;}
+.c4{background:#4285f4;}
+.c5{background:#ea4335;}
+.c6{background:#fbbc05;}
+  
+/* TITLE */
+
+h1{
+margin-top:0;
+border-bottom:1px dashed #aaa;
+padding-bottom:10px;
+}
+
+/* FORM AREA */
+
+.form-area{
+display:flex;
+gap:20px;
+background:#d9e6e8;
+padding:20px;
+}
+
+/* LEFT SIDE */
+
+.form-left{
+flex:2;
+}
+
+
+/* FORM ELEMENTS */
+
+label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+
+input, select{
+width:100%;
+padding:10px;
+margin-top:5px;
+border:1px solid #999;
+box-sizing:border-box;
+}
+
+button{
+margin-top:20px;
+padding:12px 20px;
+background:#2f65a7;
+color:white;
+border:none;
+cursor:pointer;
+font-size:16px;
+width:100%;
+max-width:220px;
+}
+
+button:hover{
+background:#1e4c86;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width:768px){
+
+.form-area{
+flex-direction:column;
+}
+
+.form-right{
+order:2;
+}
+
+.form-left{
+order:1;
+}
+
+button{
+max-width:100%;
+}
+
+}
+/* FOOTER */
+
+.footer{
+border-top:1px solid #bbb;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+font-size:13px;
+color:#777;
+}
+  /* MOBILE RESPONSIVE */
+
+@media (max-width:768px){
+.navbar{
+flex-direction:column;
+}
+
+.nav-item{
+border-top:1px solid rgba(255,255,255,0.2);
+}
+
+.main{
+flex-direction:column;
+padding:20px;
+}
+
+.leftbox{
+width:100%;
+}
+
+.content{
+width:100%;
+}
+
+.footer{
+flex-direction:column;
+gap:10px;
+text-align:center;
+}
+
+}
+  img{
+max-width:100%;
+height:auto;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="page-container">
+<!-- HEADER -->
+
+<div class="header">
+<img src="header-banner.png">
+</div>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="nav-item">
+<div class="nav-color c1"></div>
+<a href="index.html">START</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c2"></div>
+<a href="do-i-need-a-visa.html">DO I NEED A VISA?</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c3"></div>
+<a href="apply-visa.html">APPLY NOW</a>
+</div>
+<div class="nav-item">
+<div class="nav-color c4"></div>
+<a href="continue-application.html">CONTINUE APPLICATION</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c5"></div>
+<a href="check-your-application.html">CHECK YOUR APPLICATION STATUS</a>
+</div>
+
+<div class="nav-item">
+<div class="nav-color c6"></div>
+<a href="check-my-visa.html">CHECK VISA</a>
+</div>
+
+</div>
+
+
+<h1>Continue application</h1>
+
+<div class="form-area">
+
+<div class="form-left">
+
+<form>
+
+<label>File Number *</label>
+<input type="text" required>
+
+<label>Email *</label>
+<input type="email" required>
+
+
+<label>Passport Number *</label>
+<input type="text">
+
+<button type="Check Status">Check Status</button>
+
+
+</div>
+<!-- FOOTER -->
+
+<div class="footer">
+
+<div>Version: 1.6.1.0</div>
+
+<div>
+E-mail:
+<a href="mailto:evisa@mfa.gov.md">evisa@mfa.gov.md</a>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
