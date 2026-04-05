@@ -83,6 +83,20 @@
  "visatype":"D Long Stay",
  "purpose":"Work Permit",
  "photo":"sofekul.jpg"
+ },
+
+ {
+ "surname":"MOLLA",
+ "firstname":"RONI",
+ "dob":"22/10/2005",
+ "citizenship":"Bangladesh",
+ "passport":"A03493152",
+ "visa_number":"049856",
+ "status":"Status Valid",
+ "validity":"04/10/2026",
+ "visatype":"D Long Stay",
+ "purpose":"Work Permit",
+ "photo":"molla.jpg"
  }
   
  ]
