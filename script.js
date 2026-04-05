@@ -82,6 +82,11 @@ result.innerHTML = `
 <button class="search-again" onclick="location.reload()">Another search</button>
 
 </div>
+</div>
+
+`;
+
+}
 
 function checkApplication(){
 
