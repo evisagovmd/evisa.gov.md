@@ -63,17 +63,17 @@ result.innerHTML = `
 <div class="result-info">
 
 <p>Surname: <b>${record.surname}</b></p>
-<p>First name: <b>${record.firstname}</b></p>
-<p>Date of birth: <b>${record.dob}</b></p>
+<p>First Name: <b>${record.firstname}</b></p>
+<p>Date of Birth: <b>${record.dob}</b></p>
 <p>Citizenship: <b>${record.citizenship}</b></p>
-<p>Passport number: <b>${record.passport}</b></p>
+<p>Passport Number: <b>${record.passport}</b></p>
 
 <br>
 
-<p>Visa status: <span class="${record.status.toLowerCase().includes('cancel') ? 'visa-cancelled' : 'visa-approved'}">${record.status}</span></p>
-<p>Visa validity: <b>${record.validity}</b></p>
-<p>Visa type: <b>${record.visatype}</b></p>
-<p>Visit purpose: <b>${record.purpose}</b></p>
+<p>Visa Status: <span class="${record.status.toLowerCase().includes('cancel') ? 'visa-cancelled' : 'visa-approved'}">${record.status}</span></p>
+<p>Visa Validity: <b>${record.validity}</b></p>
+<p>Visa Type: <b>${record.visatype}</b></p>
+<p>Visit Purpose: <b>${record.purpose}</b></p>
 
 </div>
 
@@ -151,21 +151,21 @@ result.innerHTML = `
 <div class="result-info">
 
 <p>Surname: <b>${record.surname}</b></p>
-<p>First name: <b>${record.firstname}</b></p>
-<p>Date of birth: <b>${record.dob}</b></p>
+<p>First Name: <b>${record.firstname}</b></p>
+<p>Date of Birth: <b>${record.dob}</b></p>
 <p>Citizenship: <b>${record.citizenship}</b></p>
-<p>Passport number: <b>${record.passport}</b></p>
+<p>Passport Number: <b>${record.passport}</b></p>
 
 <br>
 
-<p>Application status:
+<p>Application Status:
 <span class="${record.status.toLowerCase().includes('cancel') ? 'visa-cancelled' : 'visa-approved'}">
 ${record.status}
 </span></p>
 
-<p>Visa validity: <b>${record.validity}</b></p>
-<p>Visa type: <b>${record.visatype}</b></p>
-<p>Visit purpose: <b>${record.purpose}</b></p>
+<p>Visa Validity: <b>${record.validity}</b></p>
+<p>Visa Type: <b>${record.visatype}</b></p>
+<p>Visit Purpose: <b>${record.purpose}</b></p>
 
 </div>
 
