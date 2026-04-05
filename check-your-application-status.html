@@ -449,7 +449,418 @@ height:auto;
 <label for="robot">I'm not a robot</label>
 </div>
 
-<button onclick="checkApplication()">Check Status</button>
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Visa Status</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#efefef;
+}
+
+/* CENTER CONTAINER */
+
+.page-container{
+width:1000px;
+margin:0 auto;
+background:white;
+}
+
+/* HEADER */
+
+.header img{
+width:100%;
+height:auto;
+display:block;
+}
+
+/* NAVIGATION */
+
+/* KEEP HEADER SAME ON MOBILE */
+
+.navbar{
+display:flex;
+background:#2f65a7;
+}
+
+.nav-item{
+flex:1;
+text-align:center;
+}
+
+.nav-color{
+height:6px;
+}
+.nav-item a{
+display:block; 
+color:white; 
+text-decoration:none; 
+padding:12px 0; 
+font-size:14px; }
+}
+
+.nav-item a:hover{
+background:#1e4c86;
+}
+
+/* COLORS */
+
+.c1{background:#f6a623;}
+.c2{background:#a142f4;}
+.c3{background:#34a853;}
+.c4{background:#4285f4;}
+.c5{background:#ea4335;}
+.c6{background:#fbbc05;}
+
+/* MAIN CONTENT */
+
+.main{
+padding:40px;
+display:flex;
+justify-content:center;
+}
+
+/* VISA FORM */
+
+.visa-box{
+width:420px;
+border:1px solid #ccc;
+padding:25px;
+background:white;
+}
+
+.visa-box h2{
+margin-top:0;
+}
+
+label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+
+input{
+width:100%;
+padding:8px;
+margin-top:5px;
+border:1px solid #ccc;
+}
+
+.robot{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:15px;
+}
+
+.robot input{
+width:auto;
+}
+
+button{
+margin-top:20px;
+padding:10px;
+width:100%;
+background:#4d87c7;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+button:hover{
+background:#376ea7;
+}
+
+.result{
+margin-top:20px;
+padding:10px;
+border:1px solid #ccc;
+background:#f5f5f5;
+}
+.result-table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+.result-table th{
+background:#f2f2f2;
+text-align:left;
+padding:8px;
+border:1px solid #ccc;
+width:40%;
+}
+
+.result-table td{
+padding:8px;
+border:1px solid #ccc;
+}
+
+.status{
+font-weight:bold;
+color:green;
+}
+
+.result-error{
+margin-top:20px;
+padding:10px;
+background:#ffe5e5;
+border:1px solid #ff9999;
+color:#c00;
+}
+
+.result-card{
+max-width:720px;
+margin:25px auto;
+border:1px solid #bbb;
+background:#e8f0f2;
+padding:20px;
+box-shadow:0 2px 4px rgba(0,0,0,0.1);
+}
+.result-header{
+font-size:18px;
+font-weight:bold;
+margin-bottom:15px;
+border-bottom:1px solid #aaa;
+padding-bottom:6px;
+}
+
+.result-content{
+display:flex;
+justify-content:space-between;
+gap:25px;
+align-items:flex-start;
+}
+
+.result-info{
+flex:1;
+font-size:15px;
+}
+
+.result-info p{
+margin:8px 0;
+}
+
+.result-photo{
+width:140px;
+}
+
+.result-photo img{
+width:100%;
+border:2px solid #333;
+background:white;
+padding:3px;
+}
+
+  .visa-approved{
+color:green;
+font-weight:bold;
+}
+
+.visa-cancelled{
+color:red;
+font-weight:bold;
+}
+
+.search-again{
+margin-top:15px;
+padding:8px 20px;
+background:#3b6ea5;
+color:white;
+border:none;
+border-radius:4px;
+cursor:pointer;
+}
+
+.search-again:hover{
+background:#2e5c8a;
+}
+@media (max-width:768px){
+
+.page-container{
+width:95%;
+}
+
+.main{
+flex-direction:column;
+padding:20px;
+}
+
+.visa-box{
+width:100%;
+}
+
+.navbar{
+flex-direction:column;
+}
+
+.nav-item{
+border-top:1px solid rgba(255,255,255,0.2);
+}
+
+.footer{
+flex-direction:column;
+gap:10px;
+text-align:center;
+}
+  
+}
+/* FOOTER */
+
+.footer{
+border-top:1px solid #bbb;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+font-size:13px;
+color:#777;
+}
+@media screen and (max-width:768px){
+
+body{
+font-size:14px;
+}
+
+.container{
+width:95%;
+padding:10px;
+}
+
+.result-table{
+font-size:14px;
+}
+
+.result-table th,
+.result-table td{
+padding:6px;
+}
+
+img{
+max-width:100%;
+height:auto;
+}
+
+}
+ @media (max-width:600px){
+
+.result-content{
+flex-direction:column;
+align-items:center;
+text-align:left;
+}
+
+.result-photo{
+margin-top:15px;
+}
+
+.visa-box{
+width:100%;
+}
+
+.page-container{
+width:95%;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="page-container">
+
+<!-- HEADER -->
+
+<div class="header">
+<img src="header-banner.png">
+</div>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="nav-item">
+<div class="nav-color c1"></div>
+<a href="index.html">START</a>
+</div>
+
+<div class="nav-item">
+<a href="/visa-requirements">DO I NEED A VISA?</a>
+</div>
+
+<div class="nav-item">
+<a href="/apply">APPLY NOW</a>
+</div>
+
+<div class="nav-item">
+<a href="/continue-application">CONTINUE APPLICATION</a>
+</div>
+
+<div class="nav-item">
+<a href="/application-status">CHECK YOUR APPLICATION STATUS</a>
+</div>
+
+<div class="nav-item">
+<a href="/check-visa">CHECK VISA</a>
+</div>
+
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<div class="visa-box">
+
+<h2>Check Visa Status</h2>
+
+<label>Visa Number</label>
+<input type="text" id="visa">
+
+<label>Passport Number</label>
+<input type="text" id="passport">
+
+<div class="robot">
+<input type="checkbox" id="robot">
+<label for="robot">I'm not a robot</label>
+</div>
+
+<button type="button" onclick="checkApplication()">Check Status</button>
+
+<div id="result"></div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<div>Version: 1.6.1.0</div>
+
+<div>
+E-mail:
+<a href="mailto:evisa@mfa.gov.md">evisa@mfa.gov.md</a>
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+<script src="router.js"></script>
+</body>
+</html>
 
 <div id="result"></div>
 
