@@ -187,16 +187,11 @@ width:100%;
 width:100%;
 }
 
-/* FOOTER */
-
 .footer{
-border-top:1px solid #bbb;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-font-size:13px;
-color:#777;
-
+flex-direction:column;
+gap:10px;
+text-align:center;
+}
 
 }
   img{
@@ -204,6 +199,12 @@ max-width:100%;
 height:auto;
 }
 
+@media (max-width:768px){
+.page-container{
+min-width:1000px;
+}
+}
+  
 </style>
 
 </head>
