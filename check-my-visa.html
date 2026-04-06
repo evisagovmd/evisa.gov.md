@@ -253,9 +253,6 @@ padding:20px;
 width:100%;
 }
 
-.navbar{
-flex-direction:column;
-}
 
 .nav-item{
 border-top:1px solid rgba(255,255,255,0.2);
@@ -324,6 +321,22 @@ width:100%;
 width:95%;
 }
 
+}
+/* KEEP NAVBAR HORIZONTAL ON MOBILE */
+
+.navbar{
+display:flex;
+flex-wrap:nowrap;
+overflow-x:auto;
+}
+
+.nav-item{
+flex:0 0 auto;
+min-width:150px;
+}
+
+.nav-item a{
+white-space:nowrap;
 }
 </style>
 
