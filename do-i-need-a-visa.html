@@ -103,9 +103,6 @@ color:#777;
 
 @media (max-width:768px){
 
-.navbar{
-flex-direction:column;
-}
 
 .nav-item{
 border-top:1px solid rgba(255,255,255,0.2);
@@ -141,7 +138,23 @@ height:auto;
 min-width:1000px;
 }
 }
-  
+/* KEEP NAVBAR HORIZONTAL ON MOBILE */
+
+.navbar{
+display:flex;
+flex-wrap:nowrap;
+overflow-x:auto;
+}
+
+.nav-item{
+flex:0 0 auto;
+min-width:150px;
+}
+
+.nav-item a{
+white-space:nowrap;
+}
+
 </style>
 
 </head>
