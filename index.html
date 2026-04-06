@@ -168,24 +168,27 @@ min-width:1000px;
 }
 /* KEEP NAVBAR HORIZONTAL ON MOBILE */
 
+@media (max-width:768px){
+
 .navbar{
 display:flex;
-flex-wrap:nowrap;
-overflow-x:auto;
+flex-wrap:wrap;
 }
 
 .nav-item{
-flex:0 0 auto;
-min-width:150px;
+flex:1 1 33%;
 }
 
 .nav-item a{
-white-space:nowrap;
+font-size:12px;
+padding:10px 5px;
 }
-.navbar::-webkit-scrollbar{
-display:none;
+
+.nav-color{
+height:4px;
 }
-  
+
+}
 </style>
 
 </head>
