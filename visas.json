@@ -307,6 +307,20 @@
  "visatype":"D Long Stay",
  "purpose":"Work Permit",
  "photo":"junaid.jpg"
+ },
+
+ {
+ "surname":"PRANTA CHANDRA",
+ "firstname":"DEV",
+ "dob":"06/05/2004",
+ "citizenship":"Bangladesh",
+ "passport":"A13226449",
+ "visa_number":"043265",
+ "status":"Status Valid",
+ "validity":"12/10/2026",
+ "visatype":"D Long Stay",
+ "purpose":"Work Permit",
+ "photo":"pranta.png"
  }
   
  ]
