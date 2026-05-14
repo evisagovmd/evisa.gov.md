@@ -338,101 +338,101 @@
  },
 
  {
+ "surname":"AMANAT",
+ "firstname":"MD",
+ "dob":"20/06/2000",
+ "citizenship":"Bangladesh",
+ "passport":"A03541082",
+ "visa_number":"654441",
+ "status":"Status Valid",
+ "validity":"14/11/2026",
+ "visatype":"D Long Stay",
+ "purpose":"Work Permit",
+ "photo":"mdamanat.png"
+ },
+
+ {
+ "surname":"BISWAS",
+ "firstname":"ANIK CHANDRA",
+ "dob":"08/12/2000",
+ "citizenship":"Bangladesh",
+ "passport":"A17183681",
+ "visa_number":"654435",
+ "status":"Status Valid",
+ "validity":"14/11/2026",
+ "visatype":"D Long Stay",
+ "purpose":"Work Permit",
+ "photo":"anikchandra.png"
+ },
+
+ {
+ "surname":"HOSSAIN",
+ "firstname":"MD TANVIR",
+ "dob":"31/07/2003",
+ "citizenship":"Bangladesh",
+ "passport":"A19042396",
+ "visa_number":"654437",
+ "status":"Status Valid",
+ "validity":"14/11/2026",
+ "visatype":"D Long Stay",
+ "purpose":"Work Permit",
+ "photo":"mdtanvir.png"
+ },
+
+ {
+ "surname":"ISLAM",
+ "firstname":"TOPU",
+ "dob":"12/03/2000",
+ "citizenship":"Bangladesh",
+ "passport":"A04869171",
+ "visa_number":"654438",
+ "status":"Status Valid",
+ "validity":"14/11/2026",
+ "visatype":"D Long Stay",
+ "purpose":"Work Permit",
+ "photo":"topuislam.png"
+ },
+
+ {
  "surname":"PRAMANIK",
- "firstname":"MD RIDOY",
- "dob":"12/01/2004",
+ "firstname":"PALASH",
+ "dob":"22/08/1997",
  "citizenship":"Bangladesh",
- "passport":"A01566523",
- "visa_number":"042072",
+ "passport":"A08620441",
+ "visa_number":"654440",
  "status":"Status Valid",
- "validity":"07/10/2026",
+ "validity":"14/11/2026",
  "visatype":"D Long Stay",
  "purpose":"Work Permit",
- "photo":"ridoy.jpg"
+ "photo":"palashpramanik.png"
  },
 
  {
- "surname":"TARFDAR",
- "firstname":"JUNAID",
- "dob":"01/01/1994",
+ "surname":"PRAMANIK",
+ "firstname":"SHANTO CHANDRA",
+ "dob":"20/10/2004",
  "citizenship":"Bangladesh",
- "passport":"A12843022",
- "visa_number":"042076",
+ "passport":"A14916078",
+ "visa_number":"654434",
  "status":"Status Valid",
- "validity":"07/10/2026",
+ "validity":"14/11/2026",
  "visatype":"D Long Stay",
  "purpose":"Work Permit",
- "photo":"junaid.jpg"
+ "photo":"shantochandra.png"
  },
 
  {
- "surname":"PRANTA CHANDRA",
- "firstname":"DEV",
- "dob":"06/05/2004",
+ "surname":"SANJID",
+ "firstname":"MD SANJIDUR RAHMAN",
+ "dob":"19/02/2006",
  "citizenship":"Bangladesh",
- "passport":"A13226449",
- "visa_number":"043265",
+ "passport":"22059535",
+ "visa_number":"654444",
  "status":"Status Valid",
- "validity":"12/10/2026",
+ "validity":"14/11/2026",
  "visatype":"D Long Stay",
  "purpose":"Work Permit",
- "photo":"pranta.png"
- },
-
- {
- "surname":"AHMED",
- "firstname":"MD FOYAZ",
- "dob":"18/12/1989",
- "citizenship":"Bangladesh",
- "passport":"A02514707",
- "visa_number":"043274",
- "status":"Status Valid",
- "validity":"12/10/2026",
- "visatype":"D Long Stay",
- "purpose":"Work Permit",
- "photo":"foyaz.png"
- },
-
- {
- "surname":"HOSSAIN",
- "firstname":"MD BABUL",
- "dob":"04/09/1983",
- "citizenship":"Bangladesh",
- "passport":"A13196225",
- "visa_number":"043276",
- "status":"Status Valid",
- "validity":"12/10/2026",
- "visatype":"D Long Stay",
- "purpose":"Work Permit",
- "photo":"babul.png"
- },
-
- {
- "surname":"HOSSAIN",
- "firstname":"MD MOSHARAF",
- "dob":"07/05/1988",
- "citizenship":"Bangladesh",
- "passport":"A14017692",
- "visa_number":"043270",
- "status":"Status Valid",
- "validity":"12/10/2026",
- "visatype":"D Long Stay",
- "purpose":"Work Permit",
- "photo":"mosharaf.png"
- },
-
- {
- "surname":"HOSSAIN",
- "firstname":"MD SADDAM",
- "dob":"06/03/1994",
- "citizenship":"Bangladesh",
- "passport":"A14197451",
- "visa_number":"043275",
- "status":"Status Valid",
- "validity":"12/10/2026",
- "visatype":"D Long Stay",
- "purpose":"Work Permit",
- "photo":"saddam.png"
+ "photo":"mdsanjidur.png"
  },
 
  {
