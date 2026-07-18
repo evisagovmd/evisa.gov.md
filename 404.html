@@ -1,24 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Redirecting...</title>
+
+<style>
+
+body{
+font-family:Arial, sans-serif;
+background:#efefef;
+text-align:center;
+padding:60px 20px;
+color:#334e68;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<p>
+Redirecting to the requested page...
+</p>
+
+<script src="router.js"></script>
+
 <script>
-var path = window.location.pathname;
 
-if(path === "/check-visa"){
-window.location.replace("/check-my-visa.html");
-}
+setTimeout(function(){
 
-if(path === "/apply"){
-window.location.replace("/apply-visa.html");
-}
+const parts =
+window.location.pathname
+.split("/")
+.filter(Boolean);
 
-if(path === "/visa-requirements"){
-window.location.replace("/do-i-need-a-visa.html");
-}
+parts.pop();
 
-if(path === "/application-status"){
-window.location.replace("/check-your-application-status.html");
-}
+const base =
+"/" +
+(
+parts.length
+? parts.join("/") + "/"
+: ""
+);
 
-if(path === "/continue-application"){
-window.location.replace("/continue-application.html");
-}
-  
+window.location.replace(
+base + "index.html"
+);
+
+},1200);
+
 </script>
+
+</body>
+
+</html>
