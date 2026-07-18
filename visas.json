@@ -15,6 +15,38 @@
  "photo":"kaoser.jpg"
  },
   
+   {
+     "type":"invitation",
+      "surname":"RAHMAN",
+      "firstname":"MD KARIM",
+      "dob":"15/06/1992",
+      "citizenship":"BANGLADESH",
+      "passport":"A12345678",
+      "invitation_number":"INV0001001",
+      "status":"Invitation Approved",
+      "invitation_type":"Employment",
+      "purpose":"Work Permit",
+      "issue_date":"20/07/2026",
+      "expiry_date":"20/10/2026",
+      "photo":"A12345678.jpg"
+    },
+
+    {
+      "type":"visa",
+      "surname":"HOSSAIN",
+      "firstname":"MD ZAKIR",
+      "dob":"15/06/1992",
+      "citizenship":"BANGLADESH",
+      "passport":"A12001552",
+      "visa_number":"MD0009001",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Abu Dhabi",
+      "issue_date":"20/07/2026",
+      "expiry_date":"19/10/2026",
+      "sticker":"MD0009001.jpg"
+    },
+  
 {
  "surname":"AMIN",
  "firstname":"AL",
