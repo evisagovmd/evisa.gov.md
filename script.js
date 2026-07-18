@@ -4,6 +4,11 @@
 
 const config = window.EVISA_CONFIG || {};
 
+
+/* =========================================================
+   TEXT NORMALIZATION
+========================================================= */
+
 function normalize(value){
 
 return String(value || "")
@@ -12,6 +17,11 @@ return String(value || "")
 .replace(/\s+/g, "");
 
 }
+
+
+/* =========================================================
+   SAFE HTML OUTPUT
+========================================================= */
 
 function safe(value){
 
@@ -38,12 +48,27 @@ return characters[character];
 
 }
 
+
+/* =========================================================
+   STATUS COLOR CLASS
+========================================================= */
+
 function statusClass(status){
 
-const text = String(status || "").toLowerCase();
+const text =
+String(status || "")
+.toLowerCase();
 
 if(text.includes("approved")){
 return "status-approved";
+}
+
+if(text.includes("invalid")){
+return "status-invalid";
+}
+
+if(text.includes("expired")){
+return "status-invalid";
 }
 
 if(text.includes("valid")){
@@ -62,16 +87,28 @@ if(text.includes("cancel")){
 return "status-cancelled";
 }
 
-if(
-text.includes("invalid") ||
-text.includes("expired")
-){
-return "status-invalid";
-}
-
 return "";
 
 }
+
+
+/* =========================================================
+   LOAD JSON DATABASE
+
+   Supports both:
+
+   New format:
+   [
+     {...}
+   ]
+
+   Old format:
+   {
+     "records":[
+       {...}
+     ]
+   }
+========================================================= */
 
 async function loadJson(file){
 
@@ -83,20 +120,80 @@ cache:"no-store"
 );
 
 if(!response.ok){
-throw new Error("Unable to load " + file);
+
+throw new Error(
+"Unable to load " + file
+);
+
 }
 
-const data = await response.json();
+const data =
+await response.json();
 
-if(!Array.isArray(data)){
-throw new Error(file + " must contain an array");
-}
+
+/* New direct-array format */
+
+if(Array.isArray(data)){
 
 return data;
 
 }
 
-function showMessage(container,type,message){
+
+/* Old records-wrapper format */
+
+if(
+data &&
+Array.isArray(data.records)
+){
+
+return data.records;
+
+}
+
+
+/* Optional alternative wrapper support */
+
+if(
+data &&
+Array.isArray(data.applications)
+){
+
+return data.applications;
+
+}
+
+if(
+data &&
+Array.isArray(data.visas)
+){
+
+return data.visas;
+
+}
+
+
+throw new Error(
+file +
+" must contain an array, records array, visas array or applications array."
+);
+
+}
+
+
+/* =========================================================
+   DISPLAY MESSAGE
+========================================================= */
+
+function showMessage(
+container,
+type,
+message
+){
+
+if(!container){
+return;
+}
 
 container.innerHTML =
 '<div class="' +
@@ -107,6 +204,11 @@ safe(message) +
 
 }
 
+
+/* =========================================================
+   IMAGE CANDIDATE GENERATOR
+========================================================= */
+
 function createImageCandidates(
 folder,
 preferredName,
@@ -115,9 +217,15 @@ fallbackName
 
 const extensions =
 config.imageExtensions ||
-["jpg","jpeg","png","webp"];
+[
+"jpg",
+"jpeg",
+"png",
+"webp"
+];
 
 const candidates = [];
+
 
 function addName(name){
 
@@ -126,10 +234,21 @@ return;
 }
 
 const cleanName =
-String(name).replace(/^\/+/,"");
+String(name)
+.trim()
+.replace(/^\/+/,"");
+
+if(!cleanName){
+return;
+}
 
 const hasExtension =
 /\.[a-z0-9]+$/i.test(cleanName);
+
+
+/*
+If complete path is already supplied
+*/
 
 if(cleanName.includes("/")){
 
@@ -137,13 +256,27 @@ candidates.push(cleanName);
 
 }else{
 
-candidates.push(folder + cleanName);
+/*
+New organized folder
+*/
 
-/* পুরোনো main folder fallback */
+candidates.push(
+folder + cleanName
+);
+
+
+/*
+Old root-folder fallback
+*/
 
 candidates.push(cleanName);
 
 }
+
+
+/*
+Try supported extensions automatically
+*/
 
 if(!hasExtension){
 
@@ -168,7 +301,9 @@ extension
 
 }
 
+
 addName(preferredName);
+
 
 if(
 fallbackName &&
@@ -180,9 +315,19 @@ addName(fallbackName);
 
 }
 
+
+/*
+Remove duplicate paths
+*/
+
 return [...new Set(candidates)];
 
 }
+
+
+/* =========================================================
+   MOUNT IMAGE WITH FALLBACK
+========================================================= */
 
 function mountImage(
 containerId,
@@ -211,10 +356,13 @@ return;
 const image =
 document.createElement("img");
 
-image.alt = altText;
+image.alt =
+altText || "Verification image";
+
 image.loading = "eager";
 
 let index = 0;
+
 
 function tryNext(){
 
@@ -230,11 +378,13 @@ return;
 
 }
 
-image.src = candidates[index];
+image.src =
+candidates[index];
 
 index++;
 
 }
+
 
 image.onerror = tryNext;
 
@@ -246,13 +396,23 @@ tryNext();
 
 }
 
+
+/* =========================================================
+   BUILD DETAILS TABLE ROWS
+========================================================= */
+
 function detailRows(rows){
 
 return rows.map(function(row){
 
-const label = row[0];
-const value = row[1];
-const className = row[2] || "";
+const label =
+row[0];
+
+const value =
+row[1];
+
+const className =
+row[2] || "";
 
 return `
 <tr>
@@ -267,6 +427,11 @@ ${safe(value)}
 
 }
 
+
+/* =========================================================
+   VISA RESULT
+========================================================= */
+
 function buildVisaResult(record){
 
 const fullName =
@@ -278,13 +443,68 @@ record.surname
 .filter(Boolean)
 .join(" ");
 
+
 const status =
 record.status || "—";
+
+
+/*
+Sticker filename priority:
+
+1. sticker
+2. sticker_file
+3. visa_number
+*/
 
 const stickerName =
 record.sticker ||
 record.sticker_file ||
 record.visa_number;
+
+
+/*
+Old and new field compatibility
+*/
+
+const nationality =
+record.nationality ||
+record.citizenship;
+
+
+const visaCategory =
+record.visatype ||
+record.visa_category ||
+record.visa_type;
+
+
+const issuePlace =
+record.issue_place ||
+record.issued_from ||
+record.issueplace;
+
+
+const issueDate =
+record.issue_date ||
+record.issued_date ||
+record.issueDate;
+
+
+/*
+Important old-file compatibility:
+
+Old field:
+validity
+
+New field:
+expiry_date
+*/
+
+const expiryDate =
+record.expiry_date ||
+record.validity ||
+record.expiry ||
+record.valid_until;
+
 
 const html = `
 
@@ -330,45 +550,45 @@ fullName
 
 [
 "Date of Birth",
-record.dob
+record.dob ||
+record.date_of_birth
 ],
 
 [
 "Nationality",
-record.nationality ||
-record.citizenship
+nationality
 ],
 
 [
 "Passport Number",
-record.passport
+record.passport ||
+record.passport_number
 ],
 
 [
 "Visa Number",
-record.visa_number
+record.visa_number ||
+record.visanumber
 ],
 
 [
 "Visa Category",
-record.visatype ||
-record.visa_category
+visaCategory
 ],
 
 [
 "Issued From",
-record.issue_place ||
-record.issued_from
+issuePlace
 ],
 
 [
 "Issue Date",
-record.issue_date
+issueDate
 ],
 
 [
 "Expiry Date",
-record.expiry_date
+expiryDate
 ]
 
 ])}
@@ -396,6 +616,7 @@ Another Search
 
 `;
 
+
 const candidates =
 createImageCandidates(
 
@@ -408,13 +629,23 @@ record.visa_number
 
 );
 
+
 return {
+
 html:html,
+
 candidates:candidates,
+
 fullName:fullName
+
 };
 
 }
+
+
+/* =========================================================
+   APPLICATION / INVITATION RESULT
+========================================================= */
 
 function buildApplicationResult(record){
 
@@ -427,17 +658,49 @@ record.surname
 .filter(Boolean)
 .join(" ");
 
+
 const status =
 record.status ||
 record.invitation_status ||
 "—";
 
+
 const preferredPhoto =
 record.photo ||
-record.photo_file;
+record.photo_file ||
+record.applicant_photo;
+
 
 const fallbackPhoto =
-record.passport;
+record.passport ||
+record.passport_number;
+
+
+const nationality =
+record.nationality ||
+record.citizenship;
+
+
+const invitationNumber =
+record.invitation_number ||
+record.application_number;
+
+
+const invitationType =
+record.invitation_type ||
+record.application_type;
+
+
+const issueDate =
+record.issue_date ||
+record.invitation_issue_date;
+
+
+const expiryDate =
+record.expiry_date ||
+record.validity ||
+record.invitation_expiry_date;
+
 
 const html = `
 
@@ -483,33 +746,33 @@ fullName
 
 [
 "Nationality",
-record.nationality ||
-record.citizenship
+nationality
 ],
 
 [
 "Passport Number",
-record.passport
+record.passport ||
+record.passport_number
 ],
 
 [
 "Invitation Number",
-record.invitation_number
+invitationNumber
 ],
 
 [
 "Invitation Type",
-record.invitation_type
+invitationType
 ],
 
 [
 "Invitation Issue Date",
-record.issue_date
+issueDate
 ],
 
 [
 "Invitation Expiry Date",
-record.expiry_date
+expiryDate
 ]
 
 ])}
@@ -537,6 +800,7 @@ Another Search
 
 `;
 
+
 const candidates =
 createImageCandidates(
 
@@ -549,46 +813,95 @@ fallbackPhoto
 
 );
 
+
 return {
+
 html:html,
+
 candidates:candidates,
+
 fullName:fullName
+
 };
 
 }
+
+
+/* =========================================================
+   VISA SEARCH
+========================================================= */
 
 async function handleVisaSearch(event){
 
 event.preventDefault();
 
+
 const result =
-document.getElementById("visa-result");
+document.getElementById(
+"visa-result"
+);
+
 
 const button =
 event.currentTarget.querySelector(
 'button[type="submit"]'
 );
 
-const visaNumber =
-normalize(
+
+const visaInput =
 document.getElementById(
 "visa-number"
-).value
 );
+
+
+const passportInput =
+document.getElementById(
+"visa-passport"
+);
+
+
+const robotInput =
+document.getElementById(
+"visa-robot"
+);
+
+
+if(
+!result ||
+!button ||
+!visaInput ||
+!passportInput ||
+!robotInput
+){
+
+console.error(
+"Required visa form elements are missing."
+);
+
+return;
+
+}
+
+
+const visaNumber =
+normalize(
+visaInput.value
+);
+
 
 const passport =
 normalize(
-document.getElementById(
-"visa-passport"
-).value
+passportInput.value
 );
 
-const robot =
-document.getElementById(
-"visa-robot"
-).checked;
 
-if(config.visaCheckEnabled === false){
+const robot =
+robotInput.checked;
+
+
+if(
+config.visaCheckEnabled === false
+){
 
 showMessage(
 result,
@@ -600,7 +913,11 @@ return;
 
 }
 
-if(!visaNumber || !passport){
+
+if(
+!visaNumber ||
+!passport
+){
 
 showMessage(
 result,
@@ -611,6 +928,7 @@ result,
 return;
 
 }
+
 
 if(!robot){
 
@@ -624,7 +942,9 @@ return;
 
 }
 
+
 button.disabled = true;
+
 
 showMessage(
 result,
@@ -632,26 +952,41 @@ result,
 "Checking visa record..."
 );
 
+
 try{
 
 const records =
 await loadJson(
+
 config.visaDataFile ||
 "visas.json"
+
 );
+
 
 const record =
 records.find(function(item){
 
+const itemVisaNumber =
+normalize(
+item.visa_number ||
+item.visanumber
+);
+
+const itemPassport =
+normalize(
+item.passport ||
+item.passport_number
+);
+
 return (
-normalize(item.visa_number) ===
-visaNumber
+itemVisaNumber === visaNumber
 &&
-normalize(item.passport) ===
-passport
+itemPassport === passport
 );
 
 });
+
 
 if(!record){
 
@@ -665,33 +1000,50 @@ return;
 
 }
 
+
 const output =
 buildVisaResult(record);
+
 
 result.innerHTML =
 output.html;
 
+
 mountImage(
+
 "visa-sticker-panel",
+
 output.candidates,
+
 "Visa sticker for " +
 output.fullName
+
 );
 
+
 result.scrollIntoView({
+
 behavior:"smooth",
+
 block:"start"
+
 });
+
 
 }catch(error){
 
-console.error(error);
+console.error(
+"Visa database error:",
+error
+);
+
 
 showMessage(
 result,
 "result-error",
 "The verification database could not be loaded. Please check visas.json."
 );
+
 
 }finally{
 
@@ -701,38 +1053,78 @@ button.disabled = false;
 
 }
 
+
+/* =========================================================
+   APPLICATION SEARCH
+========================================================= */
+
 async function handleApplicationSearch(event){
 
 event.preventDefault();
+
 
 const result =
 document.getElementById(
 "application-result"
 );
 
+
 const button =
 event.currentTarget.querySelector(
 'button[type="submit"]'
 );
 
-const invitation =
-normalize(
+
+const invitationInput =
 document.getElementById(
 "invitation-number"
-).value
 );
+
+
+const passportInput =
+document.getElementById(
+"application-passport"
+);
+
+
+const robotInput =
+document.getElementById(
+"application-robot"
+);
+
+
+if(
+!result ||
+!button ||
+!invitationInput ||
+!passportInput ||
+!robotInput
+){
+
+console.error(
+"Required application form elements are missing."
+);
+
+return;
+
+}
+
+
+const invitation =
+normalize(
+invitationInput.value
+);
+
 
 const passport =
 normalize(
-document.getElementById(
-"application-passport"
-).value
+passportInput.value
 );
 
+
 const robot =
-document.getElementById(
-"application-robot"
-).checked;
+robotInput.checked;
+
 
 if(
 config.applicationCheckEnabled === false
@@ -748,7 +1140,11 @@ return;
 
 }
 
-if(!invitation || !passport){
+
+if(
+!invitation ||
+!passport
+){
 
 showMessage(
 result,
@@ -759,6 +1155,7 @@ result,
 return;
 
 }
+
 
 if(!robot){
 
@@ -772,13 +1169,16 @@ return;
 
 }
 
+
 button.disabled = true;
+
 
 showMessage(
 result,
 "result-loading",
 "Checking invitation record..."
 );
+
 
 try{
 
@@ -790,19 +1190,36 @@ config.applicationDataFile ||
 
 );
 
+
 const record =
 records.find(function(item){
 
-return (
+const itemInvitation =
 normalize(
-item.invitation_number
-) === invitation
+
+item.invitation_number ||
+item.application_number
+
+);
+
+
+const itemPassport =
+normalize(
+
+item.passport ||
+item.passport_number
+
+);
+
+
+return (
+itemInvitation === invitation
 &&
-normalize(item.passport) ===
-passport
+itemPassport === passport
 );
 
 });
+
 
 if(!record){
 
@@ -816,33 +1233,50 @@ return;
 
 }
 
+
 const output =
 buildApplicationResult(record);
+
 
 result.innerHTML =
 output.html;
 
+
 mountImage(
+
 "application-photo-panel",
+
 output.candidates,
+
 "Applicant photo for " +
 output.fullName
+
 );
 
+
 result.scrollIntoView({
+
 behavior:"smooth",
+
 block:"start"
+
 });
+
 
 }catch(error){
 
-console.error(error);
+console.error(
+"Application database error:",
+error
+);
+
 
 showMessage(
 result,
 "result-error",
 "The verification database could not be loaded. Please check applications.json."
 );
+
 
 }finally{
 
@@ -851,6 +1285,11 @@ button.disabled = false;
 }
 
 }
+
+
+/* =========================================================
+   RESET SEARCH
+========================================================= */
 
 function resetSearch(type){
 
@@ -863,6 +1302,7 @@ type === "visa"
 
 );
 
+
 const result =
 document.getElementById(
 
@@ -872,32 +1312,57 @@ type === "visa"
 
 );
 
+
 if(form){
+
 form.reset();
+
 }
+
 
 if(result){
+
 result.innerHTML = "";
+
 }
+
 
 const firstInput =
-form ? form.querySelector("input") : null;
+form
+? form.querySelector(
+'input[type="text"]'
+)
+: null;
+
 
 if(firstInput){
+
 firstInput.focus();
+
 }
 
+
 window.scrollTo({
+
 top:0,
+
 behavior:"smooth"
+
 });
 
 }
 
+
+/* =========================================================
+   CONFIGURATION VALUES
+========================================================= */
+
 function applyConfiguration(){
 
 document
-.querySelectorAll("[data-version]")
+.querySelectorAll(
+"[data-version]"
+)
 .forEach(function(element){
 
 element.textContent =
@@ -906,15 +1371,21 @@ config.systemVersion ||
 
 });
 
+
 document
-.querySelectorAll("[data-support-email]")
+.querySelectorAll(
+"[data-support-email]"
+)
 .forEach(function(element){
 
 const email =
 config.supportEmail ||
 "evisa@mfa.gov.md";
 
-element.textContent = email;
+
+element.textContent =
+email;
+
 
 element.href =
 "mailto:" + email;
@@ -922,6 +1393,11 @@ element.href =
 });
 
 }
+
+
+/* =========================================================
+   RESET BUTTON EVENT
+========================================================= */
 
 document.addEventListener(
 "click",
@@ -931,6 +1407,7 @@ const button =
 event.target.closest(
 "[data-reset]"
 );
+
 
 if(button){
 
@@ -943,16 +1420,23 @@ button.dataset.reset
 }
 );
 
+
+/* =========================================================
+   PAGE INITIALIZATION
+========================================================= */
+
 document.addEventListener(
 "DOMContentLoaded",
 function(){
 
 applyConfiguration();
 
+
 const visaForm =
 document.getElementById(
 "visa-form"
 );
+
 
 if(visaForm){
 
@@ -963,10 +1447,12 @@ handleVisaSearch
 
 }
 
+
 const applicationForm =
 document.getElementById(
 "application-form"
 );
+
 
 if(applicationForm){
 
@@ -979,5 +1465,6 @@ handleApplicationSearch
 
 }
 );
+
 
 })();
