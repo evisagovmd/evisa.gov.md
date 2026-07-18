@@ -1,332 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check Visa Status | Moldova eVisa Verification</title>
+<title>Check Visa | eVisa Portal</title>
 
-<meta name="description" content="Enter your visa number and passport to check Moldova visa status online quickly.">
+<meta name="description" content="Verify an issued visa using the visa number and passport number.">
 
-<meta name="keywords" content="check Moldova visa, Moldova visa status check, Moldova eVisa verification">
-  
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="shortcut icon" href="favicon.png">
-  
-<style>
-
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#efefef;
-}
-
-/* CENTER CONTAINER */
-
-.page-container{
-width:1000px;
-margin:0 auto;
-overflow:hidden;
-}
-
-/* HEADER */
-
-.header img{
-max-width:1000px;
-width:100%;
-height:auto;
-display:block;
-}
-
-/* NAVIGATION */
-
-/* KEEP HEADER SAME ON MOBILE */
-  
-/* NAVBAR */
-  
-.navbar{
-display:flex;
-background:#2f65a7;
-}
-
-.nav-item{
-flex:1;
-text-align:center;
-}
-
-.nav-color{
-height:6px;
-}
-  
-.nav-item a{
-display:block; 
-color:white; 
-text-decoration:none; 
-padding:12px 0; 
-font-size:14px; 
-}
-
-.nav-item a:hover{
-background:#1e4c86;
-}
-
-/* COLORS */
-
-.c1{background:#f6a623;}
-.c2{background:#a142f4;}
-.c3{background:#34a853;}
-.c4{background:#4285f4;}
-.c5{background:#ea4335;}
-.c6{background:#fbbc05;}
-
-/* MAIN CONTENT */
-
-.main{
-padding:40px;
-display:flex;
-justify-content:center;
-}
-
-/* VISA FORM */
-
-.visa-box{
-width:100%;
-max-width:1000px;
-border:1px solid #ccc;
-padding:25px;
-background:white;
-margin:0 auto;
-box-sizing:border-box;
-}
-
-.visa-box h2{
-margin-top:0;
-}
-
-label{
-display:block;
-margin-top:15px;
-font-weight:bold;
-}
-
-input{
-width:50%;
-padding:7px;
-margin-top:5px;
-border:1px solid #ccc;
-}
-
-.robot{
-display:flex;
-align-items:center;
-gap:8px;
-margin-top:15px;
-}
-
-.robot input{
-width:auto;
-}
-
-button{
-margin-top:20px;
-padding:10px;
-width:30%;
-background:#4d87c7;
-border:none;
-color:white;
-cursor:pointer;
-}
-
-button:hover{
-background:#376ea7;
-}
-
-.result{
-margin-top:20px;
-padding:10px;
-border:1px solid #ccc;
-background:#f5f5f5;
-}
-.result-table{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-}
-
-.result-table th{
-background:#f2f2f2;
-text-align:left;
-padding:8px;
-border:1px solid #ccc;
-width:40%;
-}
-
-.result-table td{
-padding:8px;
-border:1px solid #ccc;
-}
-
-.status{
-font-weight:bold;
-color:green;
-}
-
-.result-error{
-margin-top:20px;
-padding:10px;
-background:#ffe5e5;
-border:1px solid #ff9999;
-color:#c00;
-}
-
-.result-card{
-max-width:720px;
-margin:25px auto;
-border:1px solid #bbb;
-background:#e8f0f2;
-padding:20px;
-box-shadow:0 2px 4px rgba(0,0,0,0.1);
-}
-.result-header{
-font-size:18px;
-font-weight:bold;
-margin-bottom:15px;
-border-bottom:1px solid #aaa;
-padding-bottom:6px;
-}
-
-.result-content{
-display:flex;
-justify-content:space-between;
-gap:25px;
-align-items:flex-start;
-}
-
-.result-info{
-flex:1;
-font-size:15px;
-}
-
-.result-info p{
-margin:8px 0;
-}
-
-.result-photo{
-width:140px;
-}
-
-.result-photo img{
-width:100%;
-border:2px solid #333;
-background:white;
-padding:3px;
-}
-
-  .visa-approved{
-color:green;
-font-weight:bold;
-}
-
-.visa-cancelled{
-color:red;
-font-weight:bold;
-}
-
-.search-again{
-margin-top:15px;
-padding:8px 20px;
-background:#3b6ea5;
-color:white;
-border:none;
-border-radius:4px;
-cursor:pointer;
-}
-
-.search-again:hover{
-background:#2e5c8a;
-}
-
-
-.page-container{
-width:95%;
-}
-
-.main{
-flex-direction:column;
-padding:20px;
-}
-
-.visa-box{
-width:90%;
-}
-
-
-.nav-item{
-border-top:1px solid rgba(255,255,255,0.2);
-}
-}
-  
-/* FOOTER */
-
-.footer{
-border-top:1px solid #bbb;
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-font-size:13px;
-color:#777;
-}
-
-
-body{
-font-size:14px;
-}
-
-.container{
-width:95%;
-padding:10px;
-}
-
-.result-table{
-font-size:14px;
-}
-
-.result-table th,
-.result-table td{
-padding:6px;
-}
-
-}
-
-
-.result-content{
-flex-direction:column;
-align-items:center;
-text-align:left;
-}
-
-.result-photo{
-margin-top:15px;
-}
-
-.visa-box{
-width:100%;
-}
-
-.page-container{
-width:1000px;
-margin:0 auto;
-}
-  
-.footer{
-flex-direction:column;
-gap:10px;
-text-align:center;
-}
-  
-}
-  
-</style>
+<link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -334,13 +19,9 @@ text-align:center;
 
 <div class="page-container">
 
-<!-- HEADER -->
-
 <div class="header">
-<img src="header-banner.png">
+<img src="header-banner.png" alt="eVisa Portal">
 </div>
-
-<!-- NAVBAR -->
 
 <div class="navbar">
 
@@ -350,73 +31,121 @@ text-align:center;
 </div>
 
 <div class="nav-item">
-<a href="/visa-requirements">DO I NEED A VISA?</a>
+<div class="nav-color c2"></div>
+<a href="do-i-need-a-visa.html">DO I NEED A VISA?</a>
 </div>
 
 <div class="nav-item">
-<a href="/apply">APPLY NOW</a>
+<div class="nav-color c3"></div>
+<a href="apply-visa.html">APPLY NOW</a>
 </div>
 
 <div class="nav-item">
-<a href="/continue-application">CONTINUE APPLICATION</a>
+<div class="nav-color c4"></div>
+<a href="continue-application.html">CONTINUE APPLICATION</a>
 </div>
 
 <div class="nav-item">
-<a href="/application-status">CHECK YOUR APPLICATION STATUS</a>
+<div class="nav-color c5"></div>
+<a href="check-your-application-status.html">
+CHECK YOUR APPLICATION STATUS
+</a>
 </div>
 
 <div class="nav-item">
-<a href="/check-visa">CHECK VISA</a>
+<div class="nav-color c6"></div>
+<a href="check-my-visa.html">CHECK VISA</a>
 </div>
 
+</div>
+
+<h1 class="page-title">Check Visa</h1>
+
+<p class="intro-text">
+Enter the visa number and passport number exactly as shown on the issued document.
+</p>
+
+<main class="form-area">
+
+<form id="visa-form" novalidate>
+
+<div class="form-grid">
+
+<div class="field">
+
+<label for="visa-number">
+Visa Number *
+</label>
+
+<input
+type="text"
+id="visa-number"
+autocomplete="off"
+required>
 
 </div>
 
-<!-- MAIN -->
+<div class="field">
 
-<div class="main">
+<label for="visa-passport">
+Passport Number *
+</label>
 
-<div class="visa-box">
+<input
+type="text"
+id="visa-passport"
+autocomplete="off"
+required>
 
-<h2>Check Visa Status</h2>
+</div>
 
-<label>Visa Number</label>
-<input type="text" id="visa">
-
-<label>Passport Number</label>
-<input type="text" id="passport">
+</div>
 
 <div class="robot">
-<input type="checkbox" id="robot">
-<label for="robot">I'm not a robot</label>
+
+<input type="checkbox" id="visa-robot">
+
+<label for="visa-robot">
+I'm not a robot
+</label>
+
 </div>
 
-<button onclick="checkVisa()">Check Visa</button>
+<button class="primary-button" type="submit">
+Check Visa
+</button>
 
-<div id="result"></div>
+</form>
 
+<div
+id="visa-result"
+class="result-shell"
+aria-live="polite">
 </div>
 
-</div>a
-
-<!-- FOOTER -->
+</main>
 
 <div class="footer">
 
-<div>Version: 1.6.1.0</div>
+<div>
+Version:
+<span data-version>2.0.0</span>
+</div>
 
 <div>
-  
 E-mail:
-<a href="mailto:evisa@mfa.gov.md">evisa@mfa.gov.md</a>
-
+<a data-support-email href="mailto:evisa@mfa.gov.md">
+evisa@mfa.gov.md
+</a>
 </div>
 
 </div>
 
 </div>
 
+<script src="config.js"></script>
 <script src="script.js"></script>
-<script src="router.js"></script>
+
 </body>
+
 </html>
