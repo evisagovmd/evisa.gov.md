@@ -6,7 +6,7 @@ const config = window.EVISA_CONFIG || {};
 
 
 /* =========================================================
-   NORMALIZE SEARCH VALUE
+   NORMALIZE
 ========================================================= */
 
 function normalize(value){
@@ -20,7 +20,7 @@ return String(value || "")
 
 
 /* =========================================================
-   SAFE HTML OUTPUT
+   SAFE OUTPUT
 ========================================================= */
 
 function safe(value){
@@ -32,14 +32,16 @@ value === ""
 ? "—"
 : String(value);
 
-return text.replace(/[&<>"']/g, function(character){
+return text.replace(/[&<>"']/g,function(character){
 
 const characters = {
+
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
 '"':"&quot;",
 "'":"&#039;"
+
 };
 
 return characters[character];
@@ -92,7 +94,7 @@ return "";
 
 
 /* =========================================================
-   LOAD visas.json
+   LOAD JSON
 
    Supports:
 
@@ -100,7 +102,7 @@ return "";
      "records":[...]
    }
 
-   or
+   OR
 
    [
      {...}
@@ -109,11 +111,15 @@ return "";
 
 async function loadJson(file){
 
-const response = await fetch(
+const response =
+await fetch(
+
 file + "?v=" + Date.now(),
+
 {
 cache:"no-store"
 }
+
 );
 
 if(!response.ok){
@@ -156,15 +162,14 @@ return data.visas;
 
 
 throw new Error(
-file +
-" must contain an array or records array."
+file + " must contain an array or records array."
 );
 
 }
 
 
 /* =========================================================
-   SHOW MESSAGE
+   MESSAGE
 ========================================================= */
 
 function showMessage(
@@ -178,6 +183,7 @@ return;
 }
 
 container.innerHTML =
+
 '<div class="' +
 type +
 '">' +
@@ -188,7 +194,7 @@ safe(message) +
 
 
 /* =========================================================
-   IMAGE PATH GENERATOR
+   IMAGE CANDIDATES
 ========================================================= */
 
 function createImageCandidates(
@@ -234,18 +240,14 @@ candidates.push(cleanName);
 
 }else{
 
-/*
-New folder location
-*/
+/* New folder */
 
 candidates.push(
 folder + cleanName
 );
 
 
-/*
-Old repository root fallback
-*/
+/* Old root fallback */
 
 candidates.push(cleanName);
 
@@ -257,16 +259,20 @@ if(!hasExtension){
 extensions.forEach(function(extension){
 
 candidates.push(
+
 folder +
 cleanName +
 "." +
 extension
+
 );
 
 candidates.push(
+
 cleanName +
 "." +
 extension
+
 );
 
 });
@@ -296,7 +302,7 @@ return [...new Set(candidates)];
 
 
 /* =========================================================
-   DISPLAY IMAGE WITH FALLBACK
+   DISPLAY IMAGE
 ========================================================= */
 
 function mountImage(
@@ -316,6 +322,7 @@ return;
 if(!candidates.length){
 
 container.innerHTML =
+
 '<div class="image-placeholder">' +
 'Image not available' +
 '</div>';
@@ -329,7 +336,7 @@ const image =
 document.createElement("img");
 
 image.alt =
-altText || "Verification image";
+altText || "Verification document";
 
 image.loading = "eager";
 
@@ -341,6 +348,7 @@ function tryNext(){
 if(index >= candidates.length){
 
 container.innerHTML =
+
 '<div class="image-placeholder">' +
 'Image not found.<br>' +
 'Please verify the filename and folder.' +
@@ -349,6 +357,7 @@ container.innerHTML =
 return;
 
 }
+
 
 image.src =
 candidates[index];
@@ -370,29 +379,31 @@ tryNext();
 
 
 /* =========================================================
-   DETAILS TABLE
+   TABLE
 ========================================================= */
 
 function detailRows(rows){
 
 return rows.map(function(row){
 
-const label =
-row[0];
-
-const value =
-row[1];
-
-const className =
-row[2] || "";
+const label = row[0];
+const value = row[1];
+const className = row[2] || "";
 
 return `
+
 <tr>
-<th>${safe(label)}</th>
+
+<th>
+${safe(label)}
+</th>
+
 <td class="${className}">
 ${safe(value)}
 </td>
+
 </tr>
+
 `;
 
 }).join("");
@@ -407,6 +418,7 @@ ${safe(value)}
 function getFullName(record){
 
 return record.full_name ||
+
 [
 record.firstname,
 record.surname
@@ -419,14 +431,19 @@ record.surname
 
 /* =========================================================
    IDENTIFY NEW VISA STICKER RECORD
+
+   IMPORTANT:
+   Invitation issue_date will NOT make it a visa.
 ========================================================= */
 
 function isStickerRecord(record){
 
 const type =
 normalize(
+
 record.type ||
 record.record_type
+
 );
 
 return Boolean(
@@ -435,13 +452,7 @@ type === "VISA" ||
 
 record.sticker ||
 
-record.sticker_file ||
-
-record.issue_place ||
-
-record.issued_from ||
-
-record.issue_date
+record.sticker_file
 
 );
 
@@ -506,12 +517,15 @@ Record located
 
 </div>
 
+
 <div class="result-content">
+
 
 <div
 id="visa-result-image"
 class="media-panel sticker-panel">
 </div>
+
 
 <table
 class="details-table"
@@ -583,6 +597,7 @@ expiryDate
 
 </div>
 
+
 <div class="result-actions">
 
 <button
@@ -635,8 +650,9 @@ imageAlt:
 /* =========================================================
    OLD CUSTOMER RESULT
 
-   Old customers used Visa Number + Passport
-   and received Applicant Photo.
+   IMPORTANT:
+   Old records remain unchanged.
+   Old applicant photo still works.
 ========================================================= */
 
 function buildLegacyResult(
@@ -651,31 +667,37 @@ const status =
 record.status || "—";
 
 const photoName =
+
 record.photo ||
 record.photo_file ||
 record.applicant_photo;
 
 const nationality =
+
 record.nationality ||
 record.citizenship;
 
 const number =
+
 record.invitation_number ||
 record.application_number ||
 record.visa_number ||
 record.visanumber;
 
 const visaType =
+
 record.visatype ||
 record.visa_category ||
 record.visa_type;
 
 const purpose =
+
 record.purpose ||
 record.invitation_type ||
 record.application_type;
 
 const validity =
+
 record.validity ||
 record.expiry_date ||
 record.expiry ||
@@ -698,12 +720,15 @@ Record located
 
 </div>
 
+
 <div class="result-content">
+
 
 <div
 id="legacy-result-image"
 class="media-panel photo-panel">
 </div>
+
 
 <table
 class="details-table"
@@ -769,6 +794,7 @@ validity
 
 </div>
 
+
 <div class="result-actions">
 
 <button
@@ -786,6 +812,11 @@ Another Search
 
 `;
 
+
+/*
+Old customer images still use applicant-photos,
+then root fallback.
+*/
 
 const candidates =
 createImageCandidates(
@@ -821,6 +852,17 @@ imageAlt:
 
 /* =========================================================
    NEW INVITATION RESULT
+
+   IMPORTANT:
+   Uses ORIGINAL Immigration Invitation Number.
+
+   Example:
+   invitation_number = IGM945877
+
+   Image automatically searched as:
+   assets/invitations/IGM945877.jpg
+   assets/invitations/IGM945877.png
+   etc.
 ========================================================= */
 
 function buildInvitationResult(record){
@@ -829,37 +871,52 @@ const fullName =
 getFullName(record);
 
 const status =
+
 record.status ||
 record.invitation_status ||
 "—";
 
-const photoName =
-record.photo ||
-record.photo_file ||
-record.applicant_photo;
-
 const nationality =
+
 record.nationality ||
 record.citizenship;
 
 const invitationNumber =
+
 record.invitation_number ||
-record.application_number ||
-record.visa_number;
+record.application_number;
 
 const invitationType =
+
 record.invitation_type ||
 record.application_type ||
 record.visatype;
 
 const issueDate =
+
 record.issue_date ||
 record.invitation_issue_date;
 
 const expiryDate =
+
 record.expiry_date ||
 record.validity ||
 record.invitation_expiry_date;
+
+
+/*
+OPTIONAL custom filename.
+
+If invitation_image is absent,
+the ORIGINAL invitation number is used automatically.
+*/
+
+const invitationImage =
+
+record.invitation_image ||
+record.invitation_file ||
+record.invitation_photo ||
+invitationNumber;
 
 
 const html = `
@@ -878,12 +935,15 @@ Record located
 
 </div>
 
+
 <div class="result-content">
+
 
 <div
 id="application-result-image"
-class="media-panel photo-panel">
+class="media-panel sticker-panel">
 </div>
+
 
 <table
 class="details-table"
@@ -954,6 +1014,7 @@ expiryDate
 
 </div>
 
+
 <div class="result-actions">
 
 <button
@@ -972,16 +1033,20 @@ Another Search
 `;
 
 
+/*
+New Invitation Paper:
+assets/invitations/IGM945877.jpg
+*/
+
 const candidates =
 createImageCandidates(
 
-config.applicantPhotoFolder ||
-"assets/applicant-photos/",
+config.invitationFolder ||
+"assets/invitations/",
 
-photoName,
+invitationImage,
 
-record.passport ||
-record.passport_number
+invitationNumber
 
 );
 
@@ -997,7 +1062,7 @@ imageId:"application-result-image",
 fullName:fullName,
 
 imageAlt:
-"Applicant photo for " + fullName
+"Invitation document for " + fullName
 
 };
 
@@ -1005,18 +1070,13 @@ imageAlt:
 
 
 /* =========================================================
-   VISA CHECK SEARCH
-
-   Old record:
-   Shows applicant photo and old information.
-
-   New Visa record:
-   Shows Visa Sticker.
+   VISA CHECK
 ========================================================= */
 
 async function handleVisaSearch(event){
 
 event.preventDefault();
+
 
 const result =
 document.getElementById(
@@ -1131,6 +1191,7 @@ result,
 
 try{
 
+
 const records =
 await loadJson(
 
@@ -1140,18 +1201,49 @@ config.visaDataFile ||
 );
 
 
+/*
+Check Visa:
+
+1. New Visa records:
+   type = visa
+
+2. Old legacy records:
+   no type field
+*/
+
 const record =
 records.find(function(item){
+
+
+const type =
+normalize(
+
+item.type ||
+item.record_type
+
+);
+
+
+/*
+Do NOT allow NEW invitation records
+to behave as Visa records.
+*/
+
+if(type === "INVITATION"){
+
+return false;
+
+}
+
 
 const itemNumber =
 normalize(
 
 item.visa_number ||
-item.visanumber ||
-item.invitation_number ||
-item.application_number
+item.visanumber
 
 );
+
 
 const itemPassport =
 normalize(
@@ -1161,9 +1253,13 @@ item.passport_number
 
 );
 
+
 return (
+
 itemNumber === visaNumber &&
+
 itemPassport === passport
+
 );
 
 });
@@ -1174,7 +1270,7 @@ if(!record){
 showMessage(
 result,
 "result-error",
-"No matching verification record was found. Please check the information and try again."
+"No matching visa record was found. Please check the information and try again."
 );
 
 return;
@@ -1186,7 +1282,7 @@ let output;
 
 
 /*
-New Visa Sticker Record
+New Visa Sticker
 */
 
 if(isStickerRecord(record)){
@@ -1197,7 +1293,7 @@ buildStickerVisaResult(record);
 }else{
 
 /*
-Old Customer Record
+Old customer compatibility
 */
 
 output =
@@ -1258,18 +1354,13 @@ button.disabled = false;
 
 
 /* =========================================================
-   APPLICATION STATUS SEARCH
-
-   Uses the same visas.json database.
-
-   Supports:
-   - Old visa_number records
-   - New invitation_number records
+   APPLICATION / INVITATION CHECK
 ========================================================= */
 
 async function handleApplicationSearch(event){
 
 event.preventDefault();
+
 
 const result =
 document.getElementById(
@@ -1384,10 +1475,6 @@ result,
 
 try{
 
-/*
-Important:
-Application page also loads visas.json.
-*/
 
 const records =
 await loadJson(
@@ -1401,15 +1488,15 @@ config.visaDataFile ||
 const record =
 records.find(function(item){
 
-const itemInvitation =
+
+const type =
 normalize(
 
-item.invitation_number ||
-item.application_number ||
-item.visa_number ||
-item.visanumber
+item.type ||
+item.record_type
 
 );
+
 
 const itemPassport =
 normalize(
@@ -1419,9 +1506,57 @@ item.passport_number
 
 );
 
+
+/*
+NEW invitation:
+
+Uses original immigration number:
+IGM945877
+*/
+
+if(type === "INVITATION"){
+
+const itemInvitation =
+normalize(
+
+item.invitation_number ||
+item.application_number
+
+);
+
 return (
+
 itemInvitation === invitation &&
+
 itemPassport === passport
+
+);
+
+}
+
+
+/*
+OLD RECORD COMPATIBILITY
+
+Old customers used visa_number
+as their old invitation/search number.
+*/
+
+const legacyNumber =
+normalize(
+
+item.visa_number ||
+item.visanumber
+
+);
+
+
+return (
+
+legacyNumber === invitation &&
+
+itemPassport === passport
+
 );
 
 });
@@ -1440,32 +1575,38 @@ return;
 }
 
 
+const type =
+normalize(
+
+record.type ||
+record.record_type
+
+);
+
+
 let output;
 
 
 /*
-Old customer record
+New invitation document
 */
 
-if(
-!record.invitation_number &&
-!record.application_number
-){
+if(type === "INVITATION"){
+
+output =
+buildInvitationResult(record);
+
+}else{
+
+/*
+Old customer
+*/
 
 output =
 buildLegacyResult(
 record,
 "application"
 );
-
-}else{
-
-/*
-New invitation record
-*/
-
-output =
-buildInvitationResult(record);
 
 }
 
@@ -1519,7 +1660,7 @@ button.disabled = false;
 
 
 /* =========================================================
-   RESET SEARCH
+   RESET
 ========================================================= */
 
 function resetSearch(type){
@@ -1532,6 +1673,7 @@ type === "visa"
 : "application-form"
 
 );
+
 
 const result =
 document.getElementById(
@@ -1584,7 +1726,7 @@ behavior:"smooth"
 
 
 /* =========================================================
-   CONFIGURATION
+   CONFIG
 ========================================================= */
 
 function applyConfiguration(){
@@ -1636,6 +1778,7 @@ event.target.closest(
 "[data-reset]"
 );
 
+
 if(button){
 
 resetSearch(
@@ -1664,6 +1807,7 @@ document.getElementById(
 "visa-form"
 );
 
+
 if(visaForm){
 
 visaForm.addEventListener(
@@ -1678,6 +1822,7 @@ const applicationForm =
 document.getElementById(
 "application-form"
 );
+
 
 if(applicationForm){
 
