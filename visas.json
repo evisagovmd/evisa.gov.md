@@ -527,6 +527,118 @@
       "sticker":"MD0009001.jpg"
     },
   
+  {
+      "type":"visa",
+      "surname":"PRAMANIK",
+      "firstname":"MD RIDOY",
+      "dob":"12/01/2004",
+      "citizenship":"BANGLADESH",
+      "passport":"A01566523",
+      "visa_number":"MD0038299",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"17/08/2026",
+      "expiry_date":"16/11/2026",
+      "sticker":"MD0038299.jpg"
+    },
+  
+    {
+      "type":"visa",
+      "surname":"MOLLA",
+      "firstname":"RONI",
+      "dob":"22/10/2005",
+      "citizenship":"BANGLADESH",
+      "passport":"A03493152",
+      "visa_number":"MD0038303",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"27/07/2026",
+      "expiry_date":"25/10/2026",
+      "sticker":"MD0038287.jpg"
+    },
+  
+    {
+      "type":"visa",
+      "surname":"MOLLAH",
+      "firstname":"MILON ALI",
+      "dob":"08/04/2002",
+      "citizenship":"BANGLADESH",
+      "passport":"A09245871",
+      "visa_number":"MD0038306",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"17/08/2026",
+      "expiry_date":"16/11/2026",
+      "sticker":"MD0038306.jpg"
+    },
+  
+    {
+      "type":"visa",
+      "surname":"ISLAM",
+      "firstname":"MD MONJURUL",
+      "dob":"05/04/1997",
+      "citizenship":"BANGLADESH",
+      "passport":"A15991205",
+      "visa_number":"MD0038309",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"17/07/2026",
+      "expiry_date":"16/11/2026",
+      "sticker":"MD0038309.jpg"
+    },
+  
+    {
+      "type":"visa",
+      "surname":"ALI",
+      "firstname":"MD AFSAR",
+      "dob":"10/02/1987",
+      "citizenship":"BANGLADESH",
+      "passport":"A04998096",
+      "visa_number":"MD0038293",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"17/07/2026",
+      "expiry_date":"16/11/2026",
+      "sticker":"MD0038293.jpg"
+    },
+  
+    {
+      "type":"visa",
+      "surname":"RANA",
+      "firstname":"MD SUMON",
+      "dob":"19/07/1985",
+      "citizenship":"BANGLADESH",
+      "passport":"A09349229",
+      "visa_number":"MD0038290",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"27/07/2026",
+      "expiry_date":"25/10/2026",
+      "sticker":"MD0038290.jpg"
+    },
+  
+    {
+      "type":"visa",
+      "surname":"ISLAM",
+      "firstname":"SAIFUL",
+      "dob":"10/09/2007",
+      "citizenship":"BANGLADESH",
+      "passport":"A18637545",
+      "visa_number":"MD0038296",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"17/08/2026",
+      "expiry_date":"16/11/2026",
+      "sticker":"MD0038296.jpg"
+    },
+  
 {
  "surname":"AMIN",
  "firstname":"AL",
