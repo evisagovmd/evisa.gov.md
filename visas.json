@@ -527,6 +527,38 @@
       "sticker":"MD0009001.jpg"
     },
   
+   {
+      "type":"visa",
+      "surname":"AMIN",
+      "firstname":"AL",
+      "dob":"20/05/1985",
+      "citizenship":"BANGLADESH",
+      "passport":"A01468172",
+      "visa_number":"MD0030257",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"17/08/2026",
+      "expiry_date":"06/11/2026",
+      "sticker":"MD0030257.jpg"
+    },
+  
+   {
+      "type":"visa",
+      "surname":"HANIF",
+      "firstname":"MOHAMMAD ABU",
+      "dob":"01/04/1987",
+      "citizenship":"BANGLADESH",
+      "passport":"A11043110",
+      "visa_number":"MD0030893",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"17/08/2026",
+      "expiry_date":"06/11/2026",
+      "sticker":"MD0030893.jpg"
+    },
+  
   {
       "type":"visa",
       "surname":"PRAMANIK",
