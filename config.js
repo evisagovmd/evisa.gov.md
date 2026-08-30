@@ -1,7 +1,7 @@
 window.EVISA_CONFIG = {
 
   visaCheckEnabled: true,
-  applicationCheckEnabled: true,
+  applicationCheckEnabled: false,
 
   visaDataFile: "visas.json",
 
