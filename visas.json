@@ -47,6 +47,22 @@
       "photo":"IGM945832.jpg"
     },
   
+   {
+     "type":"invitation",
+      "surname":"MIAH",
+      "firstname":"MD SHOV",
+      "dob":"12/04/1998",
+      "citizenship":"BANGLADESH",
+      "passport":"A05034546",
+      "invitation_number":"IGM945922",
+      "status":"Invitation Approved",
+      "invitation_type":"Employment",
+      "purpose":"Work Permit",
+      "issue_date":"03/09/2026",
+      "expiry_date":"02/03/2027",
+      "photo":"IGM945922.jpg"
+    },
+  
   {
      "type":"invitation",
       "surname":"SOBUJ BEPARI",
@@ -525,6 +541,38 @@
       "issue_date":"20/07/2026",
       "expiry_date":"19/10/2026",
       "sticker":"MD0009001.jpg"
+    },
+  
+   {
+      "type":"visa",
+      "surname":"TANZIL",
+      "firstname":"S M",
+      "dob":"20/01/2007",
+      "citizenship":"BANGLADESH",
+      "passport":"A20137433",
+      "visa_number":"MD0034665",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"17/08/2026",
+      "expiry_date":"06/11/2026",
+      "sticker":"MD0034665.jpg"
+    },
+  
+   {
+      "type":"visa",
+      "surname":"UDDIN",
+      "firstname":"MD JAMAL",
+      "dob":"15/08/1982",
+      "citizenship":"BANGLADESH",
+      "passport":"A15342387",
+      "visa_number":"MD0034986",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"17/08/2026",
+      "expiry_date":"06/11/2026",
+      "sticker":"MD0034986.jpg"
     },
   
    {
