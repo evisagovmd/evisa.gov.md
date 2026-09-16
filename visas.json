@@ -783,6 +783,22 @@
       "sticker":"MD0034665.jpg"
     },
   
+    {
+      "type":"visa",
+      "surname":"HOSEN",
+      "firstname":"MD SAKIB",
+      "dob":"12/03/2001",
+      "citizenship":"BANGLADESH",
+      "passport":"B00410852",
+      "visa_number":"MD0032789",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"09/09/2026",
+      "expiry_date":"08/12/2026",
+      "sticker":"MD0032789.jpg"
+    },
+  
    {
       "type":"visa",
       "surname":"UDDIN",
