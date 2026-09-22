@@ -799,6 +799,22 @@
       "sticker":"MD0032789.jpg"
     },
   
+    {
+      "type":"visa",
+      "surname":"ISLAM",
+      "firstname":"ROFIQUL",
+      "dob":"29/01/2007",
+      "citizenship":"BANGLADESH",
+      "passport":"A16570516",
+      "visa_number":"MD0032093",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"17/08/2026",
+      "expiry_date":"06/11/2026",
+      "sticker":"MD0032093.jpg"
+    },
+  
    {
       "type":"visa",
       "surname":"UDDIN",
