@@ -975,6 +975,86 @@
       "sticker":"MD0034665.jpg"
     },
   
+  {
+      "type":"visa",
+      "surname":"LATIF",
+      "firstname":"MD ABDUL",
+      "dob":"01/12/1987",
+      "citizenship":"BANGLADESH",
+      "passport":"A02874790",
+      "visa_number":"MD0198748",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"07/10/2026",
+      "expiry_date":"06/01/2027",
+      "sticker":"MD0198748.jpg"
+    },
+  
+  {
+      "type":"visa",
+      "surname":"AHMED",
+      "firstname":"MD FOYAZ",
+      "dob":"18/12/1989",
+      "citizenship":"BANGLADESH",
+      "passport":"A02514707",
+      "visa_number":"MD0198788",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"07/10/2026",
+      "expiry_date":"06/01/2027",
+      "sticker":"MD0198788.jpg"
+    },
+  
+   {
+      "type":"visa",
+      "surname":"HANNAN",
+      "firstname":"MD ABDUL",
+      "dob":"10/02/1985",
+      "citizenship":"BANGLADESH",
+      "passport":"A09072709",
+      "visa_number":"MD0198738",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"07/10/2026",
+      "expiry_date":"06/01/2027",
+      "sticker":"MD0198738.jpg"
+    },
+  
+   {
+      "type":"visa",
+      "surname":"HOSSAIN",
+      "firstname":"MOHAMMED JAMAL",
+      "dob":"04/05/1979",
+      "citizenship":"BANGLADESH",
+      "passport":"A21016550",
+      "visa_number":"MD0034875",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"15/10/2026",
+      "expiry_date":"14/01/2027",
+      "sticker":"MD0034875.jpg"
+    },
+  
+   {
+      "type":"visa",
+      "surname":"SORDER",
+      "firstname":"MD RIPON",
+      "dob":"28/10/1989",
+      "citizenship":"BANGLADESH",
+      "passport":"A12000943",
+      "visa_number":"MD0198886",
+      "status":"Status Valid",
+      "visatype":"D Long Stay",
+      "issue_place":"Bucharest",
+      "issue_date":"07/10/2026",
+      "expiry_date":"06/01/2027",
+      "sticker":"MD0198886.jpg"
+    },
+  
     {
       "type":"visa",
       "surname":"HOSEN",
